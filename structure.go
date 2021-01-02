@@ -1,10 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"log"
 	"strconv"
 )
 
@@ -85,30 +82,32 @@ type Conditions struct {
 	Summit      Condition `json:"Summit"`
 }
 
+type Forecast struct {
+	Avewind struct {
+		Dir string `json:"dir"`
+		Kph string `json:"kph"`
+		Mph string `json:"mph"`
+	} `json:"avewind"`
+	Conditions            string `json:"conditions"`
+	Date                  string `json:"date"`
+	ForecastedSnowCm      int64  `json:"forecasted_snow_cm"`
+	ForecastedSnowDayCm   string `json:"forecasted_snow_day_cm"`
+	ForecastedSnowDayIn   string `json:"forecasted_snow_day_in"`
+	ForecastedSnowIn      int64  `json:"forecasted_snow_in"`
+	ForecastedSnowNightCm string `json:"forecasted_snow_night_cm"`
+	ForecastedSnowNightIn string `json:"forecasted_snow_night_in"`
+	Icon                  string `json:"icon"`
+	Skies                 string `json:"skies"`
+	TempHighC             string `json:"temp_high_c"`
+	TempHighF             string `json:"temp_high_f"`
+	TempLowC              string `json:"temp_low_c"`
+	TempLowF              string `json:"temp_low_f"`
+}
+
 type Forecasts struct {
-	FiveDay struct {
-		Avewind struct {
-			Dir string `json:"dir"`
-			Kph string `json:"kph"`
-			Mph string `json:"mph"`
-		} `json:"avewind"`
-		Conditions            string `json:"conditions"`
-		Date                  string `json:"date"`
-		ForecastedSnowCm      int64  `json:"forecasted_snow_cm"`
-		ForecastedSnowDayCm   string `json:"forecasted_snow_day_cm"`
-		ForecastedSnowDayIn   string `json:"forecasted_snow_day_in"`
-		ForecastedSnowIn      int64  `json:"forecasted_snow_in"`
-		ForecastedSnowNightCm string `json:"forecasted_snow_night_cm"`
-		ForecastedSnowNightIn string `json:"forecasted_snow_night_in"`
-		Icon                  string `json:"icon"`
-		Skies                 string `json:"skies"`
-		TempHighC             string `json:"temp_high_c"`
-		TempHighF             string `json:"temp_high_f"`
-		TempLowC              string `json:"temp_low_c"`
-		TempLowF              string `json:"temp_low_f"`
-	} `json:"FiveDay"`
-	ForecastedSnowCm string `json:"ForecastedSnowCm"`
-	ForecastedSnowIn string `json:"ForecastedSnowIn"`
+	FiveDay          Forecast `json:"FiveDay"`
+	ForecastedSnowCm string   `json:"ForecastedSnowCm"`
+	ForecastedSnowIn string   `json:"ForecastedSnowIn"`
 	FourDay          struct {
 		Avewind struct {
 			Dir string `json:"dir"`
@@ -366,23 +365,4 @@ type Response struct {
 		TotalTerrainHectares string `json:"TotalTerrainHectares"`
 		TotalTrails          int64  `json:"TotalTrails"`
 	} `json:"SnowReport"`
-}
-
-func main() {
-	b, err := ioutil.ReadFile("test.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	data := Response{}
-	err = json.Unmarshal(b, &data)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	outB, err := json.MarshalIndent(data, "", "  ")
-	if err != nil {
-		log.Fatal(err)
-	}
-	ioutil.WriteFile("testout.json", outB, 0766)
 }
