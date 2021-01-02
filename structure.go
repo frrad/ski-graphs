@@ -141,6 +141,28 @@ type Forecasts struct {
 	TwoDay    Forecast `json:"TwoDay"`
 }
 
+type Lift struct {
+	FirstTracks string `json:"FirstTracks"`
+	Hours       struct {
+		Friday    ClosedOpen `json:"Friday"`
+		Monday    ClosedOpen `json:"Monday"`
+		Saturday  ClosedOpen `json:"Saturday"`
+		Sunday    ClosedOpen `json:"Sunday"`
+		Thursday  ClosedOpen `json:"Thursday"`
+		Tuesday   ClosedOpen `json:"Tuesday"`
+		Wednesday ClosedOpen `json:"Wednesday"`
+	} `json:"Hours"`
+	LiftType         string    `json:"LiftType"`
+	MountainAreaName string    `json:"MountainAreaName"`
+	Name             string    `json:"Name"`
+	Status           string    `json:"Status"`
+	StatusEnglish    string    `json:"StatusEnglish"`
+	UpdateDate       string    `json:"UpdateDate"`
+	WaitTime         OptionInt `json:"WaitTime"`
+	WaitTimeStatus   OptionInt `json:"WaitTimeStatus"`
+	WaitTimeString   string    `json:"WaitTimeString"`
+}
+
 type MountainArea struct {
 	Activities []struct {
 		Hours struct {
@@ -158,28 +180,8 @@ type MountainArea struct {
 		StatusEnglish string `json:"StatusEnglish"`
 		UpdateDate    string `json:"UpdateDate"`
 	} `json:"Activities"`
-	LastUpdate string `json:"LastUpdate"`
-	Lifts      []struct {
-		FirstTracks string `json:"FirstTracks"`
-		Hours       struct {
-			Friday    ClosedOpen `json:"Friday"`
-			Monday    ClosedOpen `json:"Monday"`
-			Saturday  ClosedOpen `json:"Saturday"`
-			Sunday    ClosedOpen `json:"Sunday"`
-			Thursday  ClosedOpen `json:"Thursday"`
-			Tuesday   ClosedOpen `json:"Tuesday"`
-			Wednesday ClosedOpen `json:"Wednesday"`
-		} `json:"Hours"`
-		LiftType         string    `json:"LiftType"`
-		MountainAreaName string    `json:"MountainAreaName"`
-		Name             string    `json:"Name"`
-		Status           string    `json:"Status"`
-		StatusEnglish    string    `json:"StatusEnglish"`
-		UpdateDate       string    `json:"UpdateDate"`
-		WaitTime         OptionInt `json:"WaitTime"`
-		WaitTimeStatus   OptionInt `json:"WaitTimeStatus"`
-		WaitTimeString   string    `json:"WaitTimeString"`
-	} `json:"Lifts"`
+	LastUpdate       string `json:"LastUpdate"`
+	Lifts            []Lift `json:"Lifts"`
 	Name             string `json:"Name"`
 	OpenTrailsCount  int64  `json:"OpenTrailsCount"`
 	TotalTrailsCount int64  `json:"TotalTrailsCount"`
