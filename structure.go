@@ -219,12 +219,10 @@ type Response struct {
 			SinceLiftsClosedCm string `json:"SinceLiftsClosedCm"`
 			SinceLiftsClosedIn string `json:"SinceLiftsClosedIn"`
 		} `json:"BaseArea"`
-		BaseConditions  string `json:"BaseConditions"`
-		GroomedTrails   int64  `json:"GroomedTrails"`
-		LastUpdate      string `json:"LastUpdate"`
-		LastUpdatedLift struct {
-			Kaya string `json:"Kaya"`
-		} `json:"LastUpdatedLift"`
+		BaseConditions   string `json:"BaseConditions"`
+		GroomedTrails    int64  `json:"GroomedTrails"`
+		LastUpdate       string `json:"LastUpdate"`
+		LastUpdatedLift  map[string]string
 		LiftNotification string `json:"LiftNotification"`
 		MidMountainArea  struct {
 			BaseCm             string `json:"BaseCm"`
