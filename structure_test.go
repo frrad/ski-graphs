@@ -68,7 +68,7 @@ func CompareBytes(t *testing.T, a, b []byte) {
 
 	if brokenIx != -1 {
 
-		width := 25
+		width := 50
 		from, to := brokenIx-width, brokenIx+width
 		if from < 0 {
 			from = 0
