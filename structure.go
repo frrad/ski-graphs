@@ -212,69 +212,11 @@ type Response struct {
 		Weather          []interface{} `json:"Weather"`
 		SoldOut          string        `json:"soldOut"`
 	} `json:"LayoutOptions"`
-	MountainAreas []struct {
-		Activities []struct {
-			Hours struct {
-				Friday    ClosedOpen `json:"Friday"`
-				Monday    ClosedOpen `json:"Monday"`
-				Saturday  ClosedOpen `json:"Saturday"`
-				Sunday    ClosedOpen `json:"Sunday"`
-				Thursday  ClosedOpen `json:"Thursday"`
-				Tuesday   ClosedOpen `json:"Tuesday"`
-				Wednesday ClosedOpen `json:"Wednesday"`
-			} `json:"Hours"`
-			LinkURL       string `json:"LinkUrl"`
-			Name          string `json:"Name"`
-			Status        string `json:"Status"`
-			StatusEnglish string `json:"StatusEnglish"`
-			UpdateDate    string `json:"UpdateDate"`
-		} `json:"Activities"`
-		LastUpdate string `json:"LastUpdate"`
-		Lifts      []struct {
-			FirstTracks string `json:"FirstTracks"`
-			Hours       struct {
-				Friday    ClosedOpen `json:"Friday"`
-				Monday    ClosedOpen `json:"Monday"`
-				Saturday  ClosedOpen `json:"Saturday"`
-				Sunday    ClosedOpen `json:"Sunday"`
-				Thursday  ClosedOpen `json:"Thursday"`
-				Tuesday   ClosedOpen `json:"Tuesday"`
-				Wednesday ClosedOpen `json:"Wednesday"`
-			} `json:"Hours"`
-			LiftType         string    `json:"LiftType"`
-			MountainAreaName string    `json:"MountainAreaName"`
-			Name             string    `json:"Name"`
-			Status           string    `json:"Status"`
-			StatusEnglish    string    `json:"StatusEnglish"`
-			UpdateDate       string    `json:"UpdateDate"`
-			WaitTime         OptionInt `json:"WaitTime"`
-			WaitTimeStatus   OptionInt `json:"WaitTimeStatus"`
-			WaitTimeString   string    `json:"WaitTimeString"`
-		} `json:"Lifts"`
-		Name             string `json:"Name"`
-		OpenTrailsCount  int64  `json:"OpenTrailsCount"`
-		TotalTrailsCount int64  `json:"TotalTrailsCount"`
-		Trails           []struct {
-			Difficulty       string `json:"Difficulty"`
-			Glades           string `json:"Glades"`
-			Grooming         string `json:"Grooming"`
-			Moguls           string `json:"Moguls"`
-			MountainAreaName string `json:"MountainAreaName"`
-			Name             string `json:"Name"`
-			NightSkiing      string `json:"NightSkiing"`
-			Nordic           string `json:"Nordic"`
-			SnowMaking       string `json:"SnowMaking"`
-			Status           string `json:"Status"`
-			StatusEnglish    string `json:"StatusEnglish"`
-			Touring          string `json:"Touring"`
-			TrailIcon        string `json:"TrailIcon"`
-			UpdateDate       string `json:"UpdateDate"`
-		} `json:"Trails"`
-	} `json:"MountainAreas"`
-	Name            string        `json:"Name"`
-	OperatingStatus string        `json:"OperatingStatus"`
-	ParkingLots     []interface{} `json:"ParkingLots"`
-	RoadOptions     []interface{} `json:"RoadOptions"`
+	MountainAreas   []MountainArea `json:"MountainAreas"`
+	Name            string         `json:"Name"`
+	OperatingStatus string         `json:"OperatingStatus"`
+	ParkingLots     []interface{}  `json:"ParkingLots"`
+	RoadOptions     []interface{}  `json:"RoadOptions"`
 	SnowReport      struct {
 		AdditionalText          string   `json:"AdditionalText"`
 		Alert                   string   `json:"Alert"`
