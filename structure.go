@@ -158,34 +158,13 @@ type Response struct {
 		Lifts      []struct {
 			FirstTracks string `json:"FirstTracks"`
 			Hours       struct {
-				Friday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Friday"`
-				Monday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Monday"`
-				Saturday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Saturday"`
-				Sunday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Sunday"`
-				Thursday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Thursday"`
-				Tuesday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Tuesday"`
-				Wednesday struct {
-					Close string `json:"Close"`
-					Open  string `json:"Open"`
-				} `json:"Wednesday"`
+				Friday    ClosedOpen `json:"Friday"`
+				Monday    ClosedOpen `json:"Monday"`
+				Saturday  ClosedOpen `json:"Saturday"`
+				Sunday    ClosedOpen `json:"Sunday"`
+				Thursday  ClosedOpen `json:"Thursday"`
+				Tuesday   ClosedOpen `json:"Tuesday"`
+				Wednesday ClosedOpen `json:"Wednesday"`
 			} `json:"Hours"`
 			LiftType         string    `json:"LiftType"`
 			MountainAreaName string    `json:"MountainAreaName"`
