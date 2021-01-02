@@ -44,6 +44,21 @@ func (o OptionInt) MarshalJSON() ([]byte, error) {
 	return []byte(fmt.Sprintf("%d", o.val)), nil
 }
 
+type AreaSnow struct {
+	BaseCm             string `json:"BaseCm"`
+	BaseIn             string `json:"BaseIn"`
+	Last24HoursCm      string `json:"Last24HoursCm"`
+	Last24HoursIn      string `json:"Last24HoursIn"`
+	Last48HoursCm      string `json:"Last48HoursCm"`
+	Last48HoursIn      string `json:"Last48HoursIn"`
+	Last72HoursCm      string `json:"Last72HoursCm"`
+	Last72HoursIn      string `json:"Last72HoursIn"`
+	Last7DaysCm        string `json:"Last7DaysCm"`
+	Last7DaysIn        string `json:"Last7DaysIn"`
+	SinceLiftsClosedCm string `json:"SinceLiftsClosedCm"`
+	SinceLiftsClosedIn string `json:"SinceLiftsClosedIn"`
+}
+
 type ClosedOpen struct {
 	Close string `json:"Close"`
 	Open  string `json:"Open"`
@@ -201,85 +216,46 @@ type Response struct {
 	ParkingLots     []interface{} `json:"ParkingLots"`
 	RoadOptions     []interface{} `json:"RoadOptions"`
 	SnowReport      struct {
-		AdditionalText          string `json:"AdditionalText"`
-		Alert                   string `json:"Alert"`
-		AnnualAverageSnowfallCm string `json:"AnnualAverageSnowfallCm"`
-		AnnualAverageSnowfallIn string `json:"AnnualAverageSnowfallIn"`
-		BaseArea                struct {
-			BaseCm             string `json:"BaseCm"`
-			BaseIn             string `json:"BaseIn"`
-			Last24HoursCm      string `json:"Last24HoursCm"`
-			Last24HoursIn      string `json:"Last24HoursIn"`
-			Last48HoursCm      string `json:"Last48HoursCm"`
-			Last48HoursIn      string `json:"Last48HoursIn"`
-			Last72HoursCm      string `json:"Last72HoursCm"`
-			Last72HoursIn      string `json:"Last72HoursIn"`
-			Last7DaysCm        string `json:"Last7DaysCm"`
-			Last7DaysIn        string `json:"Last7DaysIn"`
-			SinceLiftsClosedCm string `json:"SinceLiftsClosedCm"`
-			SinceLiftsClosedIn string `json:"SinceLiftsClosedIn"`
-		} `json:"BaseArea"`
-		BaseConditions   string `json:"BaseConditions"`
-		GroomedTrails    int64  `json:"GroomedTrails"`
-		LastUpdate       string `json:"LastUpdate"`
-		LastUpdatedLift  map[string]string
-		LiftNotification string `json:"LiftNotification"`
-		MidMountainArea  struct {
-			BaseCm             string `json:"BaseCm"`
-			BaseIn             string `json:"BaseIn"`
-			Last24HoursCm      string `json:"Last24HoursCm"`
-			Last24HoursIn      string `json:"Last24HoursIn"`
-			Last48HoursCm      string `json:"Last48HoursCm"`
-			Last48HoursIn      string `json:"Last48HoursIn"`
-			Last72HoursCm      string `json:"Last72HoursCm"`
-			Last72HoursIn      string `json:"Last72HoursIn"`
-			Last7DaysCm        string `json:"Last7DaysCm"`
-			Last7DaysIn        string `json:"Last7DaysIn"`
-			SinceLiftsClosedCm string `json:"SinceLiftsClosedCm"`
-			SinceLiftsClosedIn string `json:"SinceLiftsClosedIn"`
-		} `json:"MidMountainArea"`
-		News                   string `json:"News"`
-		OpenNightParks         int64  `json:"OpenNightParks"`
-		OpenNightTrails        int64  `json:"OpenNightTrails"`
-		OpenTerrainAcres       string `json:"OpenTerrainAcres"`
-		OpenTerrainHectares    string `json:"OpenTerrainHectares"`
-		Report                 string `json:"Report"`
-		SafetyReport           string `json:"SafetyReport"`
-		SeasonTotalCm          string `json:"SeasonTotalCm"`
-		SeasonTotalIn          string `json:"SeasonTotalIn"`
-		SecondarySeasonTotalCm string `json:"SecondarySeasonTotalCm"`
-		SecondarySeasonTotalIn string `json:"SecondarySeasonTotalIn"`
-		SnowBaseRangeCM        string `json:"SnowBaseRangeCM"`
-		SnowBaseRangeIn        string `json:"SnowBaseRangeIn"`
-		StormRadar             string `json:"StormRadar"`
-		StormRadarButtonText   string `json:"StormRadarButtonText"`
-		StormTotalCM           string `json:"StormTotalCM"`
-		StormTotalIn           string `json:"StormTotalIn"`
-		SummitArea             struct {
-			BaseCm             string `json:"BaseCm"`
-			BaseIn             string `json:"BaseIn"`
-			Last24HoursCm      string `json:"Last24HoursCm"`
-			Last24HoursIn      string `json:"Last24HoursIn"`
-			Last48HoursCm      string `json:"Last48HoursCm"`
-			Last48HoursIn      string `json:"Last48HoursIn"`
-			Last72HoursCm      string `json:"Last72HoursCm"`
-			Last72HoursIn      string `json:"Last72HoursIn"`
-			Last7DaysCm        string `json:"Last7DaysCm"`
-			Last7DaysIn        string `json:"Last7DaysIn"`
-			SinceLiftsClosedCm string `json:"SinceLiftsClosedCm"`
-			SinceLiftsClosedIn string `json:"SinceLiftsClosedIn"`
-		} `json:"SummitArea"`
-		TotalActivities      int64  `json:"TotalActivities"`
-		TotalLifts           int64  `json:"TotalLifts"`
-		TotalNightParks      int64  `json:"TotalNightParks"`
-		TotalNightTrails     int64  `json:"TotalNightTrails"`
-		TotalOpenActivities  int64  `json:"TotalOpenActivities"`
-		TotalOpenLifts       int64  `json:"TotalOpenLifts"`
-		TotalOpenParks       int64  `json:"TotalOpenParks"`
-		TotalOpenTrails      int64  `json:"TotalOpenTrails"`
-		TotalParks           int64  `json:"TotalParks"`
-		TotalTerrainAcres    string `json:"TotalTerrainAcres"`
-		TotalTerrainHectares string `json:"TotalTerrainHectares"`
-		TotalTrails          int64  `json:"TotalTrails"`
+		AdditionalText          string   `json:"AdditionalText"`
+		Alert                   string   `json:"Alert"`
+		AnnualAverageSnowfallCm string   `json:"AnnualAverageSnowfallCm"`
+		AnnualAverageSnowfallIn string   `json:"AnnualAverageSnowfallIn"`
+		BaseArea                AreaSnow `json:"BaseArea"`
+		BaseConditions          string   `json:"BaseConditions"`
+		GroomedTrails           int64    `json:"GroomedTrails"`
+		LastUpdate              string   `json:"LastUpdate"`
+		LastUpdatedLift         map[string]string
+		LiftNotification        string   `json:"LiftNotification"`
+		MidMountainArea         AreaSnow `json:"MidMountainArea"`
+		News                    string   `json:"News"`
+		OpenNightParks          int64    `json:"OpenNightParks"`
+		OpenNightTrails         int64    `json:"OpenNightTrails"`
+		OpenTerrainAcres        string   `json:"OpenTerrainAcres"`
+		OpenTerrainHectares     string   `json:"OpenTerrainHectares"`
+		Report                  string   `json:"Report"`
+		SafetyReport            string   `json:"SafetyReport"`
+		SeasonTotalCm           string   `json:"SeasonTotalCm"`
+		SeasonTotalIn           string   `json:"SeasonTotalIn"`
+		SecondarySeasonTotalCm  string   `json:"SecondarySeasonTotalCm"`
+		SecondarySeasonTotalIn  string   `json:"SecondarySeasonTotalIn"`
+		SnowBaseRangeCM         string   `json:"SnowBaseRangeCM"`
+		SnowBaseRangeIn         string   `json:"SnowBaseRangeIn"`
+		StormRadar              string   `json:"StormRadar"`
+		StormRadarButtonText    string   `json:"StormRadarButtonText"`
+		StormTotalCM            string   `json:"StormTotalCM"`
+		StormTotalIn            string   `json:"StormTotalIn"`
+		SummitArea              AreaSnow `json:"SummitArea"`
+		TotalActivities         int64    `json:"TotalActivities"`
+		TotalLifts              int64    `json:"TotalLifts"`
+		TotalNightParks         int64    `json:"TotalNightParks"`
+		TotalNightTrails        int64    `json:"TotalNightTrails"`
+		TotalOpenActivities     int64    `json:"TotalOpenActivities"`
+		TotalOpenLifts          int64    `json:"TotalOpenLifts"`
+		TotalOpenParks          int64    `json:"TotalOpenParks"`
+		TotalOpenTrails         int64    `json:"TotalOpenTrails"`
+		TotalParks              int64    `json:"TotalParks"`
+		TotalTerrainAcres       string   `json:"TotalTerrainAcres"`
+		TotalTerrainHectares    string   `json:"TotalTerrainHectares"`
+		TotalTrails             int64    `json:"TotalTrails"`
 	} `json:"SnowReport"`
 }
