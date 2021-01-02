@@ -141,17 +141,19 @@ type Forecasts struct {
 	TwoDay    Forecast `json:"TwoDay"`
 }
 
+type Hours struct {
+	Friday    ClosedOpen `json:"Friday"`
+	Monday    ClosedOpen `json:"Monday"`
+	Saturday  ClosedOpen `json:"Saturday"`
+	Sunday    ClosedOpen `json:"Sunday"`
+	Thursday  ClosedOpen `json:"Thursday"`
+	Tuesday   ClosedOpen `json:"Tuesday"`
+	Wednesday ClosedOpen `json:"Wednesday"`
+}
+
 type Lift struct {
-	FirstTracks string `json:"FirstTracks"`
-	Hours       struct {
-		Friday    ClosedOpen `json:"Friday"`
-		Monday    ClosedOpen `json:"Monday"`
-		Saturday  ClosedOpen `json:"Saturday"`
-		Sunday    ClosedOpen `json:"Sunday"`
-		Thursday  ClosedOpen `json:"Thursday"`
-		Tuesday   ClosedOpen `json:"Tuesday"`
-		Wednesday ClosedOpen `json:"Wednesday"`
-	} `json:"Hours"`
+	FirstTracks      string    `json:"FirstTracks"`
+	Hours            Hours     `json:"Hours"`
 	LiftType         string    `json:"LiftType"`
 	MountainAreaName string    `json:"MountainAreaName"`
 	Name             string    `json:"Name"`
@@ -163,44 +165,40 @@ type Lift struct {
 	WaitTimeString   string    `json:"WaitTimeString"`
 }
 
-type MountainArea struct {
-	Activities []struct {
-		Hours struct {
-			Friday    ClosedOpen `json:"Friday"`
-			Monday    ClosedOpen `json:"Monday"`
-			Saturday  ClosedOpen `json:"Saturday"`
-			Sunday    ClosedOpen `json:"Sunday"`
-			Thursday  ClosedOpen `json:"Thursday"`
-			Tuesday   ClosedOpen `json:"Tuesday"`
-			Wednesday ClosedOpen `json:"Wednesday"`
-		} `json:"Hours"`
-		LinkURL       string `json:"LinkUrl"`
-		Name          string `json:"Name"`
-		Status        string `json:"Status"`
-		StatusEnglish string `json:"StatusEnglish"`
-		UpdateDate    string `json:"UpdateDate"`
-	} `json:"Activities"`
-	LastUpdate       string `json:"LastUpdate"`
-	Lifts            []Lift `json:"Lifts"`
+type Trail struct {
+	Difficulty       string `json:"Difficulty"`
+	Glades           string `json:"Glades"`
+	Grooming         string `json:"Grooming"`
+	Moguls           string `json:"Moguls"`
+	MountainAreaName string `json:"MountainAreaName"`
 	Name             string `json:"Name"`
-	OpenTrailsCount  int64  `json:"OpenTrailsCount"`
-	TotalTrailsCount int64  `json:"TotalTrailsCount"`
-	Trails           []struct {
-		Difficulty       string `json:"Difficulty"`
-		Glades           string `json:"Glades"`
-		Grooming         string `json:"Grooming"`
-		Moguls           string `json:"Moguls"`
-		MountainAreaName string `json:"MountainAreaName"`
-		Name             string `json:"Name"`
-		NightSkiing      string `json:"NightSkiing"`
-		Nordic           string `json:"Nordic"`
-		SnowMaking       string `json:"SnowMaking"`
-		Status           string `json:"Status"`
-		StatusEnglish    string `json:"StatusEnglish"`
-		Touring          string `json:"Touring"`
-		TrailIcon        string `json:"TrailIcon"`
-		UpdateDate       string `json:"UpdateDate"`
-	} `json:"Trails"`
+	NightSkiing      string `json:"NightSkiing"`
+	Nordic           string `json:"Nordic"`
+	SnowMaking       string `json:"SnowMaking"`
+	Status           string `json:"Status"`
+	StatusEnglish    string `json:"StatusEnglish"`
+	Touring          string `json:"Touring"`
+	TrailIcon        string `json:"TrailIcon"`
+	UpdateDate       string `json:"UpdateDate"`
+}
+
+type Activity struct {
+	Hours         Hours  `json:"Hours"`
+	LinkURL       string `json:"LinkUrl"`
+	Name          string `json:"Name"`
+	Status        string `json:"Status"`
+	StatusEnglish string `json:"StatusEnglish"`
+	UpdateDate    string `json:"UpdateDate"`
+}
+
+type MountainArea struct {
+	Activities       []Activity `json:"Activities"`
+	LastUpdate       string     `json:"LastUpdate"`
+	Lifts            []Lift     `json:"Lifts"`
+	Name             string     `json:"Name"`
+	OpenTrailsCount  int64      `json:"OpenTrailsCount"`
+	TotalTrailsCount int64      `json:"TotalTrailsCount"`
+	Trails           []Trail    `json:"Trails"`
 }
 
 type SnowReport struct {
