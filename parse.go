@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,14 +10,43 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
+	api "github.com/influxdata/influxdb-client-go/v2/api"
 )
 
+const (
+	organization = "organization"
+	bucket       = "bucket"
+	token        = "example-token"
+	influxURL    = "http://localhost:8086"
+)
+
+func setupInfluxClient() (api.WriteAPIBlocking, func()) {
+	client := influxdb2.NewClient(influxURL, token)
+
+	cleanup := func() {
+		client.Close()
+	}
+
+	writeAPI := client.WriteAPIBlocking(organization, bucket)
+
+	return writeAPI, cleanup
+}
+
 func main() {
+	writeClient, cleanup := setupInfluxClient()
+	defer cleanup()
+
 	files, err := filepath.Glob("*.json")
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	processFiles(files, writeClient)
+}
+
+func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 	for _, f := range files {
 		x, err := parseFile(f)
 		if err != nil {
@@ -25,6 +55,16 @@ func main() {
 
 		for _, area := range x.Response.MountainAreas {
 			for _, l := range area.Lifts {
+
+				influxClient.WritePoint(
+					context.Background(),
+					influxdb2.NewPoint(
+						"stat",
+						map[string]string{"unit": "temperature"},
+						map[string]interface{}{"avg": 24.5, "max": 45},
+						time.Now(),
+					))
+
 				fmt.Println(x.Time, l.Name, l.Status, l.UpdateDate, l.WaitTime)
 			}
 		}
