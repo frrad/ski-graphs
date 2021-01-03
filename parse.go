@@ -13,6 +13,7 @@ import (
 
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	api "github.com/influxdata/influxdb-client-go/v2/api"
+	apiWrite "github.com/influxdata/influxdb-client-go/v2/api/write"
 )
 
 const (
@@ -55,20 +56,24 @@ func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 
 		for _, area := range x.Response.MountainAreas {
 			for _, l := range area.Lifts {
-
-				influxClient.WritePoint(
-					context.Background(),
-					influxdb2.NewPoint(
-						"stat",
-						map[string]string{"unit": "temperature"},
-						map[string]interface{}{"avg": 24.5, "max": 45},
-						time.Now(),
-					))
-
-				fmt.Println(x.Time, l.Name, l.Status, l.UpdateDate, l.WaitTime)
+				p := pointFromLift(x.Time, x.Resort, l)
+				influxClient.WritePoint(context.Background(), p)
 			}
 		}
 	}
+}
+
+func pointFromLift(t time.Time, resort int, l Lift) *apiWrite.Point {
+	return influxdb2.NewPoint(
+		"lift",
+		map[string]string{
+			"AreaName": l.MountainAreaName,
+			"LiftName": l.Name,
+			"Resort":   fmt.Sprintf("%d", resort),
+		},
+		l.Status.OneHot(),
+		t,
+	)
 }
 
 func parseFile(f string) (ResortTime, error) {
