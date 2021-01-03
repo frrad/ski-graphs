@@ -154,6 +154,8 @@ func (s *LiftStatus) UnmarshalJSON(b []byte) error {
 		*s = LiftStatusScheduled
 	case "\"Closed\"":
 		*s = LiftStatusClosed
+	case "\"Wind Hold\"":
+		*s = LiftStatusWindHold
 	default:
 		return fmt.Errorf("can't unmarshal %s", string(b))
 	}
@@ -168,6 +170,7 @@ func (s LiftStatus) MarshalJSON() ([]byte, error) {
 const (
 	LiftStatusScheduled LiftStatus = iota
 	LiftStatusClosed
+	LiftStatusWindHold
 	LiftStatusMax
 )
 
@@ -177,6 +180,8 @@ func (s LiftStatus) String() string {
 		return "Scheduled"
 	case LiftStatusClosed:
 		return "Closed"
+	case LiftStatusWindHold:
+		return "Wind Hold"
 	}
 
 	log.Fatalf("how string %d", s)

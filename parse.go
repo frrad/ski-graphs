@@ -19,7 +19,7 @@ import (
 const (
 	organization = "organization"
 	bucket       = "bucket"
-	token        = "example-token"
+	token        = "zI_gNzqimDn58hwhA1HtiJaSmFpYkThP68zD23yGp8_Q8YzepH5nXasCi8eY5XJcCfF17u7Re18JEoc36UHeLw=="
 	influxURL    = "http://localhost:8086"
 )
 
@@ -64,14 +64,19 @@ func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 }
 
 func pointFromLift(t time.Time, resort int, l Lift) *apiWrite.Point {
+	tags := map[string]string{
+		"AreaName": l.MountainAreaName,
+		"LiftName": l.Name,
+		"Resort":   fmt.Sprintf("%d", resort),
+	}
+	fields := l.Status.OneHot()
+
+	log.Println(tags, fields)
+
 	return influxdb2.NewPoint(
 		"lift",
-		map[string]string{
-			"AreaName": l.MountainAreaName,
-			"LiftName": l.Name,
-			"Resort":   fmt.Sprintf("%d", resort),
-		},
-		l.Status.OneHot(),
+		tags,
+		fields,
 		t,
 	)
 }
