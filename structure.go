@@ -105,18 +105,18 @@ type AveWind struct {
 
 type Forecast struct {
 	Avewind               *AveWind `json:"avewind,omitempty"`
-	Conditions            string   `json:"conditions,omitempty"`
+	Conditions            *string  `json:"conditions,omitempty"`
 	Date                  string   `json:"date"`
 	ForecastedSnowCm      int64    `json:"forecasted_snow_cm"`
-	ForecastedSnowDayCm   string   `json:"forecasted_snow_day_cm"`
-	ForecastedSnowDayIn   string   `json:"forecasted_snow_day_in"`
+	ForecastedSnowDayCm   *string  `json:"forecasted_snow_day_cm,omitempty"`
+	ForecastedSnowDayIn   *string  `json:"forecasted_snow_day_in,omitempty"`
 	ForecastedSnowIn      int64    `json:"forecasted_snow_in"`
 	ForecastedSnowNightCm string   `json:"forecasted_snow_night_cm"`
 	ForecastedSnowNightIn string   `json:"forecasted_snow_night_in"`
-	Icon                  string   `json:"icon"`
-	Skies                 string   `json:"skies"`
-	TempHighC             string   `json:"temp_high_c"`
-	TempHighF             string   `json:"temp_high_f"`
+	Icon                  *string  `json:"icon,omitempty"`
+	Skies                 *string  `json:"skies,omitempty"`
+	TempHighC             *string  `json:"temp_high_c,omitempty"`
+	TempHighF             *string  `json:"temp_high_f,omitempty"`
 	TempLowC              string   `json:"temp_low_c"`
 	TempLowF              string   `json:"temp_low_f"`
 }
