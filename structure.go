@@ -149,18 +149,19 @@ type Hours struct {
 type LiftStatus int
 
 func (s *LiftStatus) UnmarshalJSON(b []byte) error {
-	switch string(b) {
-	case "\"Scheduled\"":
-		*s = LiftStatusScheduled
-	case "\"Closed\"":
-		*s = LiftStatusClosed
-	case "\"Wind Hold\"":
-		*s = LiftStatusWindHold
-	default:
-		return fmt.Errorf("can't unmarshal %s", string(b))
+	for i := LiftStatus(0); i < LiftStatusMax; i++ {
+		bs, err := i.MarshalJSON()
+		if err != nil {
+			return err
+		}
+
+		if string(bs) == string(b) {
+			*s = i
+			return nil
+		}
 	}
 
-	return nil
+	return fmt.Errorf("can't unmarshal %s", string(b))
 }
 
 func (s LiftStatus) MarshalJSON() ([]byte, error) {
@@ -171,6 +172,8 @@ const (
 	LiftStatusScheduled LiftStatus = iota
 	LiftStatusClosed
 	LiftStatusWindHold
+	LiftStatusOpen
+	LiftStatusMechanicalHold
 	LiftStatusMax
 )
 
@@ -182,6 +185,10 @@ func (s LiftStatus) String() string {
 		return "Closed"
 	case LiftStatusWindHold:
 		return "Wind Hold"
+	case LiftStatusOpen:
+		return "Open"
+	case LiftStatusMechanicalHold:
+		return "Mechanical Hold"
 	}
 
 	log.Fatalf("how string %d", s)

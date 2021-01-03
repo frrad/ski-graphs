@@ -51,7 +51,7 @@ func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 	for _, f := range files {
 		x, err := parseFile(f)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("error parsing %s: %s", f, err)
 		}
 
 		for _, area := range x.Response.MountainAreas {
