@@ -56,20 +56,21 @@ func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 
 		for _, area := range x.Response.MountainAreas {
 			for _, l := range area.Lifts {
-				p := pointFromLift(x.Time, x.Resort, l)
+				p := pointFromLift(x.Time, x.Response.Name, l)
 				influxClient.WritePoint(context.Background(), p)
 			}
 		}
 	}
 }
 
-func pointFromLift(t time.Time, resort int, l Lift) *apiWrite.Point {
+func pointFromLift(t time.Time, resort string, l Lift) *apiWrite.Point {
 	tags := map[string]string{
 		"AreaName": l.MountainAreaName,
 		"LiftName": l.Name,
-		"Resort":   fmt.Sprintf("%d", resort),
+		"Resort":   resort,
+		"Status":   l.Status.String(),
 	}
-	fields := l.Status.OneHot()
+	fields := map[string]interface{}{"count": 1}
 
 	log.Println(tags, fields)
 

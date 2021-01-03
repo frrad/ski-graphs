@@ -201,9 +201,9 @@ func (s LiftStatus) String() string {
 func (s LiftStatus) OneHot() map[string]interface{} {
 	ans := map[string]interface{}{}
 	for i := LiftStatus(0); i < LiftStatusMax; i++ {
-		ans[i.String()] = false
+		ans[i.String()] = 0
 		if i == s {
-			ans[i.String()] = true
+			ans[i.String()] = 1
 		}
 	}
 	return ans
