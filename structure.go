@@ -97,26 +97,28 @@ type Conditions struct {
 	Summit      Condition `json:"Summit"`
 }
 
+type AveWind struct {
+	Dir string `json:"dir"`
+	Kph string `json:"kph"`
+	Mph string `json:"mph"`
+}
+
 type Forecast struct {
-	Avewind struct {
-		Dir string `json:"dir"`
-		Kph string `json:"kph"`
-		Mph string `json:"mph"`
-	} `json:"avewind"`
-	Conditions            string `json:"conditions"`
-	Date                  string `json:"date"`
-	ForecastedSnowCm      int64  `json:"forecasted_snow_cm"`
-	ForecastedSnowDayCm   string `json:"forecasted_snow_day_cm"`
-	ForecastedSnowDayIn   string `json:"forecasted_snow_day_in"`
-	ForecastedSnowIn      int64  `json:"forecasted_snow_in"`
-	ForecastedSnowNightCm string `json:"forecasted_snow_night_cm"`
-	ForecastedSnowNightIn string `json:"forecasted_snow_night_in"`
-	Icon                  string `json:"icon"`
-	Skies                 string `json:"skies"`
-	TempHighC             string `json:"temp_high_c"`
-	TempHighF             string `json:"temp_high_f"`
-	TempLowC              string `json:"temp_low_c"`
-	TempLowF              string `json:"temp_low_f"`
+	Avewind               *AveWind `json:"avewind,omitempty"`
+	Conditions            *string  `json:"conditions,omitempty"`
+	Date                  string   `json:"date"`
+	ForecastedSnowCm      int64    `json:"forecasted_snow_cm"`
+	ForecastedSnowDayCm   *string  `json:"forecasted_snow_day_cm,omitempty"`
+	ForecastedSnowDayIn   *string  `json:"forecasted_snow_day_in,omitempty"`
+	ForecastedSnowIn      int64    `json:"forecasted_snow_in"`
+	ForecastedSnowNightCm string   `json:"forecasted_snow_night_cm"`
+	ForecastedSnowNightIn string   `json:"forecasted_snow_night_in"`
+	Icon                  *string  `json:"icon,omitempty"`
+	Skies                 *string  `json:"skies,omitempty"`
+	TempHighC             *string  `json:"temp_high_c,omitempty"`
+	TempHighF             *string  `json:"temp_high_f,omitempty"`
+	TempLowC              string   `json:"temp_low_c"`
+	TempLowF              string   `json:"temp_low_f"`
 }
 
 type Forecasts struct {
@@ -124,21 +126,13 @@ type Forecasts struct {
 	ForecastedSnowCm string   `json:"ForecastedSnowCm"`
 	ForecastedSnowIn string   `json:"ForecastedSnowIn"`
 	FourDay          Forecast `json:"FourDay"`
-	OneDay           struct {
-		Date                  string `json:"date"`
-		ForecastedSnowCm      int64  `json:"forecasted_snow_cm"`
-		ForecastedSnowIn      int64  `json:"forecasted_snow_in"`
-		ForecastedSnowNightCm string `json:"forecasted_snow_night_cm"`
-		ForecastedSnowNightIn string `json:"forecasted_snow_night_in"`
-		TempLowC              string `json:"temp_low_c"`
-		TempLowF              string `json:"temp_low_f"`
-	} `json:"OneDay"`
-	TempHighC string   `json:"TempHighC"`
-	TempHighF string   `json:"TempHighF"`
-	TempLowC  string   `json:"TempLowC"`
-	TempLowF  string   `json:"TempLowF"`
-	ThreeDay  Forecast `json:"ThreeDay"`
-	TwoDay    Forecast `json:"TwoDay"`
+	OneDay           Forecast `json:"OneDay"`
+	TempHighC        string   `json:"TempHighC"`
+	TempHighF        string   `json:"TempHighF"`
+	TempLowC         string   `json:"TempLowC"`
+	TempLowF         string   `json:"TempLowF"`
+	ThreeDay         Forecast `json:"ThreeDay"`
+	TwoDay           Forecast `json:"TwoDay"`
 }
 
 type Hours struct {

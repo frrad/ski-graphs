@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"embed"
 	"encoding/json"
 	"fmt"
@@ -12,7 +13,7 @@ var testFiles embed.FS
 
 const dirName = "testinput"
 
-func TestAbs(t *testing.T) {
+func TestRoundTrip(t *testing.T) {
 	dir, err := testFiles.ReadDir(dirName)
 	if err != nil {
 		t.Error(err)
@@ -38,12 +39,19 @@ func RoundtripBytes(t *testing.T, b []byte) {
 		t.Error(err)
 	}
 
-	outB, err := json.MarshalIndent(data, "", "  ")
+	encodeTo := &bytes.Buffer{}
+	enc := json.NewEncoder(encodeTo)
+	enc.SetEscapeHTML(false)
+	enc.SetIndent("", "  ")
+
+	err = enc.Encode(data)
 	if err != nil {
 		t.Error(err)
 	}
 
-	CompareBytes(t, b, append(outB, []byte("\n")...))
+	outB := encodeTo.Bytes()
+
+	CompareBytes(t, b, outB)
 }
 
 func CompareBytes(t *testing.T, a, b []byte) {
