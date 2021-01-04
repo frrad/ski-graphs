@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -23,14 +22,14 @@ const (
 	influxURL    = "http://localhost:8086"
 )
 
-func setupInfluxClient() (api.WriteAPIBlocking, func()) {
-	client := influxdb2.NewClient(influxURL, token)
+func setupInfluxClient() (api.WriteAPI, func()) {
+	client := influxdb2.NewClientWithOptions(influxURL, token, influxdb2.DefaultOptions())
+	writeAPI := client.WriteAPI(organization, bucket)
 
 	cleanup := func() {
+		writeAPI.Flush()
 		client.Close()
 	}
-
-	writeAPI := client.WriteAPIBlocking(organization, bucket)
 
 	return writeAPI, cleanup
 }
@@ -47,7 +46,7 @@ func main() {
 	processFiles(files, writeClient)
 }
 
-func processFiles(files []string, influxClient api.WriteAPIBlocking) {
+func processFiles(files []string, influxClient api.WriteAPI) {
 	for _, f := range files {
 		x, err := parseFile(f)
 		if err != nil {
@@ -56,14 +55,17 @@ func processFiles(files []string, influxClient api.WriteAPIBlocking) {
 
 		for _, area := range x.Response.MountainAreas {
 			for _, l := range area.Lifts {
-				p := pointFromLift(x.Time, x.Response.Name, l)
-				influxClient.WritePoint(context.Background(), p)
+				ps := pointFromLift(x.Time, x.Response.Name, l)
+
+				for _, p := range ps {
+					influxClient.WritePoint(p)
+				}
 			}
 		}
 	}
 }
 
-func pointFromLift(t time.Time, resort string, l Lift) *apiWrite.Point {
+func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
 	tags := map[string]string{
 		"AreaName": l.MountainAreaName,
 		"LiftName": l.Name,
@@ -72,14 +74,24 @@ func pointFromLift(t time.Time, resort string, l Lift) *apiWrite.Point {
 	}
 	fields := map[string]interface{}{"count": 1}
 
-	log.Println(tags, fields)
+	ans := []*apiWrite.Point{}
 
-	return influxdb2.NewPoint(
-		"lift",
-		tags,
-		fields,
-		t,
-	)
+	for statusName, val := range l.Status.OneHot() {
+		tags["Status"] = statusName
+		fields["count"] = val
+
+		log.Println(tags, fields)
+
+		ans = append(ans, influxdb2.NewPoint(
+			"lift",
+			tags,
+			fields,
+			t,
+		))
+
+	}
+
+	return ans
 }
 
 func parseFile(f string) (ResortTime, error) {
