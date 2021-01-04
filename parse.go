@@ -9,26 +9,89 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
+	api "github.com/influxdata/influxdb-client-go/v2/api"
+	apiWrite "github.com/influxdata/influxdb-client-go/v2/api/write"
 )
 
+const (
+	organization = "organization"
+	bucket       = "bucket"
+	token        = "zI_gNzqimDn58hwhA1HtiJaSmFpYkThP68zD23yGp8_Q8YzepH5nXasCi8eY5XJcCfF17u7Re18JEoc36UHeLw=="
+	influxURL    = "http://localhost:8086"
+)
+
+func setupInfluxClient() (api.WriteAPI, func()) {
+	client := influxdb2.NewClientWithOptions(influxURL, token, influxdb2.DefaultOptions())
+	writeAPI := client.WriteAPI(organization, bucket)
+
+	cleanup := func() {
+		writeAPI.Flush()
+		client.Close()
+	}
+
+	return writeAPI, cleanup
+}
+
 func main() {
+	writeClient, cleanup := setupInfluxClient()
+	defer cleanup()
+
 	files, err := filepath.Glob("*.json")
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	processFiles(files, writeClient)
+}
+
+func processFiles(files []string, influxClient api.WriteAPI) {
 	for _, f := range files {
 		x, err := parseFile(f)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("error parsing %s: %s", f, err)
 		}
 
 		for _, area := range x.Response.MountainAreas {
 			for _, l := range area.Lifts {
-				fmt.Println(x.Time, l.Name, l.Status, l.UpdateDate, l.WaitTime)
+				ps := pointFromLift(x.Time, x.Response.Name, l)
+
+				for _, p := range ps {
+					influxClient.WritePoint(p)
+				}
 			}
 		}
 	}
+}
+
+func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
+	tags := map[string]string{
+		"AreaName": l.MountainAreaName,
+		"LiftName": l.Name,
+		"Resort":   resort,
+		"Status":   l.Status.String(),
+	}
+	fields := map[string]interface{}{"count": 1}
+
+	ans := []*apiWrite.Point{}
+
+	for statusName, val := range l.Status.OneHot() {
+		tags["Status"] = statusName
+		fields["count"] = val
+
+		log.Println(tags, fields)
+
+		ans = append(ans, influxdb2.NewPoint(
+			"lift",
+			tags,
+			fields,
+			t,
+		))
+
+	}
+
+	return ans
 }
 
 func parseFile(f string) (ResortTime, error) {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -145,18 +146,84 @@ type Hours struct {
 	Wednesday ClosedOpen `json:"Wednesday"`
 }
 
+type LiftStatus int
+
+func (s *LiftStatus) UnmarshalJSON(b []byte) error {
+	for i := LiftStatus(0); i < LiftStatusMax; i++ {
+		bs, err := i.MarshalJSON()
+		if err != nil {
+			return err
+		}
+
+		if string(bs) == string(b) {
+			*s = i
+			return nil
+		}
+	}
+
+	return fmt.Errorf("can't unmarshal %s", string(b))
+}
+
+func (s LiftStatus) MarshalJSON() ([]byte, error) {
+	return []byte(strconv.Quote(s.String())), nil
+}
+
+const (
+	LiftStatusScheduled LiftStatus = iota
+	LiftStatusClosed
+	LiftStatusWindHold
+	LiftStatusOpen
+	LiftStatusMechanicalHold
+	LiftStatusAnticipatedWeatherImpact
+	LiftStatusDelayed
+	LiftStatusMax
+)
+
+func (s LiftStatus) String() string {
+	switch s {
+	case LiftStatusScheduled:
+		return "Scheduled"
+	case LiftStatusClosed:
+		return "Closed"
+	case LiftStatusWindHold:
+		return "Wind Hold"
+	case LiftStatusOpen:
+		return "Open"
+	case LiftStatusMechanicalHold:
+		return "Mechanical Hold"
+	case LiftStatusAnticipatedWeatherImpact:
+		return "Anticipated Weather Impact"
+	case LiftStatusDelayed:
+		return "Delayed"
+	}
+
+	log.Fatalf("how string %d", s)
+	return ""
+}
+
+func (s LiftStatus) OneHot() map[string]interface{} {
+	ans := map[string]interface{}{}
+	for i := LiftStatus(0); i < LiftStatusMax; i++ {
+		ans[i.String()] = 0
+		if i == s {
+			ans[i.String()] = 1
+		}
+	}
+	return ans
+}
+
 type Lift struct {
-	FirstTracks      string    `json:"FirstTracks"`
-	Hours            Hours     `json:"Hours"`
-	LiftType         string    `json:"LiftType"`
-	MountainAreaName string    `json:"MountainAreaName"`
-	Name             string    `json:"Name"`
-	Status           string    `json:"Status"`
-	StatusEnglish    string    `json:"StatusEnglish"`
-	UpdateDate       string    `json:"UpdateDate"`
-	WaitTime         OptionInt `json:"WaitTime"`
-	WaitTimeStatus   OptionInt `json:"WaitTimeStatus"`
-	WaitTimeString   string    `json:"WaitTimeString"`
+	FirstTracks      string     `json:"FirstTracks"`
+	Hours            Hours      `json:"Hours"`
+	LiftType         string     `json:"LiftType"`
+	MountainAreaName string     `json:"MountainAreaName"`
+	Name             string     `json:"Name"`
+	Status           LiftStatus `json:"Status"`
+	StatusEnglish    string     `json:"StatusEnglish"`
+	UpdateDate       string     `json:"UpdateDate"`
+	WaitTime         OptionInt  `json:"WaitTime"`
+	WaitTimeStatus   OptionInt  `json:"WaitTimeStatus"`
+	WaitTimeString   string     `json:"WaitTimeString"`
 }
 
 type Trail struct {
