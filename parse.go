@@ -66,19 +66,17 @@ func processFiles(files []string, influxClient api.WriteAPI) {
 }
 
 func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
-	tags := map[string]string{
-		"AreaName": l.MountainAreaName,
-		"LiftName": l.Name,
-		"Resort":   resort,
-		"Status":   l.Status.String(),
-	}
-	fields := map[string]interface{}{"count": 1}
 
 	ans := []*apiWrite.Point{}
 
 	for statusName, val := range l.Status.OneHot() {
-		tags["Status"] = statusName
-		fields["count"] = val
+		tags := map[string]string{
+			"AreaName": l.MountainAreaName,
+			"LiftName": l.Name,
+			"Resort":   resort,
+			"Status":   statusName,
+		}
+		fields := map[string]interface{}{"count": val}
 
 		log.Println(tags, fields)
 
@@ -89,6 +87,24 @@ func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
 			t,
 		))
 
+	}
+
+	if l.WaitTime.set {
+		tags := map[string]string{
+			"AreaName": l.MountainAreaName,
+			"LiftName": l.Name,
+			"Resort":   resort,
+		}
+		fields := map[string]interface{}{"wait": l.WaitTime.val}
+
+		log.Println(tags, fields)
+
+		ans = append(ans, influxdb2.NewPoint(
+			"lift-wait",
+			tags,
+			fields,
+			t,
+		))
 	}
 
 	return ans
