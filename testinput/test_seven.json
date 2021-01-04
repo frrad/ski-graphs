@@ -1,0 +1,2883 @@
+{
+  "CurrentConditions": {
+    "Base": {
+      "Conditions": "mostlycloudy",
+      "Default": "false",
+      "DewPointC": "-3.1",
+      "DewPointF": "26.0",
+      "FeedSavedTime": "2021-01-03T09:19:46-0700",
+      "Humidity": 78,
+      "Icon": "bkn.svg",
+      "PressureIN": "30.19",
+      "PressureMB": "1022.0",
+      "Skies": "Mostly Cloudy",
+      "TemperatureC": "0.0",
+      "TemperatureF": "32.0",
+      "TemperatureHighC": "1.0",
+      "TemperatureHighF": "34.0",
+      "TemperatureLowC": "-2.0",
+      "TemperatureLowF": "28.0",
+      "UvIndex": "--",
+      "WindChillC": "-1.7",
+      "WindChillF": "29.0",
+      "WindDirection": "SSE",
+      "WindGustsKph": 14,
+      "WindGustsMph": 9,
+      "WindStrengthKph": 5,
+      "WindStrengthMph": 3
+    },
+    "MidMountain": {
+      "Conditions": "mostlycloudy",
+      "Default": "true",
+      "DewPointC": "-3.2",
+      "DewPointF": "26.0",
+      "FeedSavedTime": "2021-01-03T09:19:52-0700",
+      "Humidity": 97,
+      "Icon": "bkn.svg",
+      "PressureIN": "--",
+      "PressureMB": "--",
+      "Skies": "Mostly Cloudy",
+      "TemperatureC": "-3.0",
+      "TemperatureF": "27.0",
+      "TemperatureHighC": "1.0",
+      "TemperatureHighF": "34.0",
+      "TemperatureLowC": "-2.0",
+      "TemperatureLowF": "28.0",
+      "UvIndex": "--",
+      "WindChillC": "-2.8",
+      "WindChillF": "27.0",
+      "WindDirection": "SSE",
+      "WindGustsKph": 5,
+      "WindGustsMph": 3,
+      "WindStrengthKph": 1,
+      "WindStrengthMph": 1
+    },
+    "Summit": {
+      "Conditions": "mostlycloudy",
+      "Default": "false",
+      "DewPointC": "-4.4",
+      "DewPointF": "24.0",
+      "FeedSavedTime": "2021-01-03T09:19:50-0700",
+      "Humidity": 98,
+      "Icon": "bkn.svg",
+      "PressureIN": "--",
+      "PressureMB": "--",
+      "Skies": "Mostly Cloudy",
+      "TemperatureC": "-4.0",
+      "TemperatureF": "25.0",
+      "TemperatureHighC": "1.0",
+      "TemperatureHighF": "34.0",
+      "TemperatureLowC": "-2.0",
+      "TemperatureLowF": "28.0",
+      "UvIndex": "--",
+      "WindChillC": "-13.9",
+      "WindChillF": "7.0",
+      "WindDirection": "SW",
+      "WindGustsKph": 64,
+      "WindGustsMph": 40,
+      "WindStrengthKph": 56,
+      "WindStrengthMph": 35
+    }
+  },
+  "Forecast": {
+    "FiveDay": {
+      "avewind": {
+        "dir": "SE",
+        "kph": "1m/s",
+        "mph": "5mph"
+      },
+      "conditions": "slight_chance_snow_then_mostly_sunny",
+      "date": "2021-01-07",
+      "forecasted_snow_cm": 6,
+      "forecasted_snow_day_cm": "0-3",
+      "forecasted_snow_day_in": "0-1",
+      "forecasted_snow_in": 2,
+      "forecasted_snow_night_cm": "0-3",
+      "forecasted_snow_night_in": "0-1",
+      "icon": "snow.svg",
+      "skies": "Slight Chance Snow then Mostly Sunny. Mostly Cloudy",
+      "temp_high_c": "1.0",
+      "temp_high_f": "34.0",
+      "temp_low_c": "-5.0",
+      "temp_low_f": "23.0"
+    },
+    "ForecastedSnowCm": "6.0",
+    "ForecastedSnowIn": "2.0",
+    "FourDay": {
+      "avewind": {
+        "dir": "SW",
+        "kph": "2m/s",
+        "mph": "5mph"
+      },
+      "conditions": "chance_snow_and_breezy",
+      "date": "2021-01-06",
+      "forecasted_snow_cm": 9,
+      "forecasted_snow_day_cm": "0-3",
+      "forecasted_snow_day_in": "0-1",
+      "forecasted_snow_in": 3,
+      "forecasted_snow_night_cm": "2-6",
+      "forecasted_snow_night_in": "1-2",
+      "icon": "snow.svg",
+      "skies": "Chance Snow and Breezy. Chance Snow and Breezy",
+      "temp_high_c": "2.0",
+      "temp_high_f": "36.0",
+      "temp_low_c": "-4.0",
+      "temp_low_f": "24.0"
+    },
+    "OneDay": {
+      "avewind": {
+        "dir": "SW",
+        "kph": "2m/s",
+        "mph": "5mph"
+      },
+      "conditions": "breezy_chance_snow_showers_then_mostly_cloudy",
+      "date": "2021-01-03",
+      "forecasted_snow_cm": 6,
+      "forecasted_snow_day_cm": "0-3",
+      "forecasted_snow_day_in": "0-1",
+      "forecasted_snow_in": 2,
+      "forecasted_snow_night_cm": "0-3",
+      "forecasted_snow_night_in": "0-1",
+      "icon": "snow.svg",
+      "skies": "Breezy. Chance Snow Showers then Mostly Cloudy. Breezy. Mostly Cloudy then Snow",
+      "temp_high_c": "1.0",
+      "temp_high_f": "34.0",
+      "temp_low_c": "-2.0",
+      "temp_low_f": "28.0"
+    },
+    "TempHighC": "1.0",
+    "TempHighF": "34.0",
+    "TempLowC": "-2.0",
+    "TempLowF": "28.0",
+    "ThreeDay": {
+      "avewind": {
+        "dir": "SE",
+        "kph": "1m/s",
+        "mph": "5mph"
+      },
+      "conditions": "sunny",
+      "date": "2021-01-05",
+      "forecasted_snow_cm": 0,
+      "forecasted_snow_day_cm": "0",
+      "forecasted_snow_day_in": "0",
+      "forecasted_snow_in": 0,
+      "forecasted_snow_night_cm": "0",
+      "forecasted_snow_night_in": "0",
+      "icon": "few.svg",
+      "skies": "Sunny. Partly Cloudy",
+      "temp_high_c": "1.0",
+      "temp_high_f": "34.0",
+      "temp_low_c": "-5.0",
+      "temp_low_f": "23.0"
+    },
+    "TwoDay": {
+      "avewind": {
+        "dir": "SW",
+        "kph": "6m/s",
+        "mph": "15mph"
+      },
+      "conditions": "heavy_snow_and_very_windy",
+      "date": "2021-01-04",
+      "forecasted_snow_cm": 39,
+      "forecasted_snow_day_cm": "17-28",
+      "forecasted_snow_day_in": "7-11",
+      "forecasted_snow_in": 15,
+      "forecasted_snow_night_cm": "5-11",
+      "forecasted_snow_night_in": "2-4",
+      "icon": "snow.svg",
+      "skies": "Heavy Snow and Very Windy. Heavy Snow and Very Windy then Chance Snow Showers and Windy",
+      "temp_high_c": "0.0",
+      "temp_high_f": "32.0",
+      "temp_low_c": "-8.0",
+      "temp_low_f": "17.0"
+    }
+  },
+  "LastUpdate": "2021-01-03T08:23:33-0800",
+  "LayoutOptions": {
+    "Disclaimer": "--",
+    "PrimaryWeather": "--",
+    "SecondaryWeather": [],
+    "Weather": [],
+    "soldOut": "false"
+  },
+  "MountainAreas": [
+    {
+      "Activities": [],
+      "LastUpdate": "2019-01-23T14:05:48-0800",
+      "Lifts": [],
+      "Name": "Food and Beverage",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 0,
+      "Trails": []
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-12-30T12:10:00-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Monday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Saturday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Sunday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Thursday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Tuesday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Wednesday": {
+              "Close": "",
+              "Open": ""
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Kangaroo",
+          "Name": "Kangaroo",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "UpdateDate": "2020-12-24T13:23:18-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 0,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Kangaroo",
+      "OpenTrailsCount": 2,
+      "TotalTrailsCount": 2,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Kangaroo",
+          "Name": "Kangaroo Main Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-30T12:10:00-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Kangaroo",
+          "Name": "Nick's Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-18T08:39:23-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-11-16T08:11:06-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Monday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Saturday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Sunday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Thursday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Tuesday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Wednesday": {
+              "Close": "",
+              "Open": ""
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Lakeview",
+          "Name": "Lakeview",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "UpdateDate": "2020-11-13T09:32:27-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 0,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Lakeview",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 7,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Lakeview to Weasel",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Leisure Lane",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Mountain View",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Outer Limits",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Scotty's Beam",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Shooting Star",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Lakeview",
+          "Name": "Twilight Zone",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-02T16:09:12-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "Cabriolet",
+          "MountainAreaName": "Meadow",
+          "Name": "Big Carpet",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:09:12-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        },
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Meadow",
+          "Name": "Meadow",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:04:07-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Meadow",
+      "OpenTrailsCount": 1,
+      "TotalTrailsCount": 1,
+      "Trails": [
+        {
+          "Difficulty": "Easy",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Meadow",
+          "Name": "Meadow Beginner Area",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "GreenCircle",
+          "UpdateDate": "2020-12-30T09:51:06-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-02T16:04:07-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Roundhouse",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:04:07-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Roundhouse",
+      "OpenTrailsCount": 13,
+      "TotalTrailsCount": 13,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Banana Chute",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Boomerang",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Charity",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-18T09:48:05-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Dance Floor",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "East Runout",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-18T09:48:05-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Gunner's Knob",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-19T09:04:52-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Hot Wheels Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-27T11:07:03-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Loop Road",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-30T09:51:07-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Rock Garden",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Sandy's Corner",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-30T09:51:07-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Sympathy Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Upper Weasel One",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Roundhouse",
+          "Name": "Werner's Schuss",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-27T05:33:12-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-02T16:04:07-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Scott",
+          "Name": "Scott",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:04:07-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Scott",
+      "OpenTrailsCount": 5,
+      "TotalTrailsCount": 13,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Bobby's Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-29T05:04:58-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Chute That Seldom Slides",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-26T11:59:11-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Gentian Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Lower 40 Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Lower 40 Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Promised Land",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Scott Chute",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Scott Meadow",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Scott Ridge",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-26T11:39:04-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Standard Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-31T08:57:17-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Subway Cirque",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Summer Road",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-26T11:39:04-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Scott",
+          "Name": "Winter Road",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-11-26T09:42:45-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Monday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Saturday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Sunday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Thursday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Tuesday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Wednesday": {
+              "Close": "",
+              "Open": ""
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Sherwood",
+          "Name": "Sherwood Express",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "UpdateDate": "2020-09-28T20:25:21-0700",
+          "WaitTime": 0,
+          "WaitTimeStatus": 0,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Sherwood",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 11,
+      "Trails": [
+        {
+          "Difficulty": "Expert",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "East Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Maid Marian",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Nottingham's Notch",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Ray's Rut",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Reily's Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Robin Hood",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Sherwood Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "Sherwood Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "South Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "South Face Access",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Expert",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Sherwood",
+          "Name": "West Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [
+        {
+          "Hours": {
+            "Friday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Monday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Saturday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Sunday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Thursday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Tuesday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            },
+            "Wednesday": {
+              "Close": "4:15pm",
+              "Open": "8:30am"
+            }
+          },
+          "LinkUrl": "--",
+          "Name": "Squaw/Alpine Express Shuttle",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "UpdateDate": "2020-11-30T13:48:16-0800"
+        }
+      ],
+      "LastUpdate": "2019-01-28T11:29:16-0800",
+      "Lifts": [],
+      "Name": "Squaw/Alpine Express",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 0,
+      "Trails": []
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-02T16:04:07-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Subway",
+          "Name": "Subway",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:04:07-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Subway",
+      "OpenTrailsCount": 1,
+      "TotalTrailsCount": 1,
+      "Trails": [
+        {
+          "Difficulty": "Easy",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Subway",
+          "Name": "Subway Beginner Area",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "GreenCircle",
+          "UpdateDate": "2020-12-18T09:48:05-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-03T08:23:33-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Monday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Saturday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Sunday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Thursday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Tuesday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Wednesday": {
+              "Close": "",
+              "Open": ""
+            }
+          },
+          "LiftType": "Cabriolet",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Alpine Bowl Chair",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "UpdateDate": "2020-10-15T16:31:02-0700",
+          "WaitTime": 0,
+          "WaitTimeStatus": 0,
+          "WaitTimeString": "--"
+        },
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "",
+              "Open": ""
+            },
+            "Thursday": {
+              "Close": " 4pm",
+              "Open": " 9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": " 4pm",
+              "Open": " 9am"
+            }
+          },
+          "LiftType": "High-Speed 6 Chair",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Summit Express",
+          "Status": "Delayed",
+          "StatusEnglish": "delayed",
+          "UpdateDate": "2021-01-03T08:23:33-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Summit & Alpine Bowl",
+      "OpenTrailsCount": 19,
+      "TotalTrailsCount": 46,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Alpine Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-18T05:35:35-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Beaver Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Bernie's Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Big Bend Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Big Bend Keyhole",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "CB Chute",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "CK Bench",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "D5",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2021-01-02T16:45:01-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "D6",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2021-01-02T16:45:01-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "D7",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-28T13:35:10-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "D8",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:13-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Estelle Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Grouse Rock",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Grouse Saddle",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "High Traverse",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "High Yellow Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-18T09:38:01-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "High Yellow Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-18T09:38:01-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Idiot's Delight",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Kangaroo Ridge",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-17T16:58:14-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Keyhole Slopes",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Lower Beaver Entrance",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Lower Saddle",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "North Peril",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:14-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Palisades",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:14-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Peril Ridge",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:15-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Pete's Peril",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:15-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Poma Rocks",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Pond Slope",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Sherwood Creek",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "South Beaver",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "S.P. Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Sun Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Sunspot",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-17T16:58:15-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Terry's Return",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-17T16:58:15-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "The Buttress",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "The Face",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T12:08:17-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "The Face Cliffs",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T12:08:17-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "The Keyhole",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-20T11:10:55-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Three Sisters",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Top Alpine Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Upper Saddle",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Waterfall",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T12:08:17-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "West Runout",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Wolverine",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-17T16:58:16-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Wolverine Bowl",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T16:58:16-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Summit & Alpine Bowl",
+          "Name": "Wolverine Saddle",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2021-01-03T06:44:51-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-01T07:50:39-0800",
+      "Lifts": [],
+      "Name": "Terrain Parks",
+      "OpenTrailsCount": 1,
+      "TotalTrailsCount": 4,
+      "Trails": [
+        {
+          "Difficulty": "SmallPark",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Terrain Parks",
+          "Name": "Burton Riglet Park",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "Park",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "MediumPark",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Terrain Parks",
+          "Name": "Kangaroo Ridge Park",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "Park",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "SmallPark",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Terrain Parks",
+          "Name": "Loop Road Family Cross",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "Park",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "SmallPark",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Terrain Parks",
+          "Name": "Start Park",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "Park",
+          "UpdateDate": "2021-01-01T07:50:39-0800"
+        },
+        {
+          "Difficulty": "MediumPark",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Terrain Parks",
+          "Name": "Tiegel Terrain Park",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "Park",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-01T08:50:38-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "Cabriolet",
+          "MountainAreaName": "Yellow",
+          "Name": "Yellow",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-01T08:50:38-0800",
+          "WaitTime": "--",
+          "WaitTimeStatus": "--",
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Yellow",
+      "OpenTrailsCount": 3,
+      "TotalTrailsCount": 3,
+      "Trails": [
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Yellow",
+          "Name": "Fall Line",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Yellow",
+          "Name": "Ladies' Slalom",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-30T09:51:07-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Yellow",
+          "Name": "Yellow Trail",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-10-16T07:59:40-0700",
+      "Lifts": [],
+      "Name": "Summit",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 0,
+      "Trails": []
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2021-01-03T06:44:51-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "--",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Treeline Cirque",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2021-01-02T16:09:12-0800",
+          "WaitTime": 0,
+          "WaitTimeStatus": 2,
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Treeline Cirque",
+      "OpenTrailsCount": 8,
+      "TotalTrailsCount": 13,
+      "Trails": [
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Art's Knob",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2021-01-03T06:44:51-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Counterweight Gully",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "East Creek",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-27T05:33:13-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Easy Return Road",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-17T10:49:41-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Expert Shortcut",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T10:49:41-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Hidden Knolls",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-17T10:49:41-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Our Father",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Return Road",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-18T06:49:56-0800"
+        },
+        {
+          "Difficulty": "Very difficult",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Sherwood Cliffs",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlackDiamond",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Skateboard Alley",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-30T05:58:18-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Tiegel",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "No",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "To Lakeview",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Closed",
+          "StatusEnglish": "closed",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        },
+        {
+          "Difficulty": "Intermediate",
+          "Glades": "No",
+          "Grooming": "Yes",
+          "Moguls": "No",
+          "MountainAreaName": "Treeline Cirque",
+          "Name": "Weasel Run",
+          "NightSkiing": "No",
+          "Nordic": "No",
+          "SnowMaking": "No",
+          "Status": "Open",
+          "StatusEnglish": "open",
+          "Touring": "No",
+          "TrailIcon": "BlueSquare",
+          "UpdateDate": "2020-12-13T19:40:47-0800"
+        }
+      ]
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-10-16T07:59:14-0700",
+      "Lifts": [],
+      "Name": "Summit & Alpine Bowl Chair",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 0,
+      "Trails": []
+    },
+    {
+      "Activities": [],
+      "LastUpdate": "2020-12-30T12:55:37-0800",
+      "Lifts": [
+        {
+          "FirstTracks": "No",
+          "Hours": {
+            "Friday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Monday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Saturday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Sunday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Thursday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Tuesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            },
+            "Wednesday": {
+              "Close": "4pm",
+              "Open": "9am"
+            }
+          },
+          "LiftType": "Cabriolet",
+          "MountainAreaName": "Ski School",
+          "Name": "Little Carpet",
+          "Status": "Scheduled",
+          "StatusEnglish": "scheduled",
+          "UpdateDate": "2020-12-30T12:55:37-0800",
+          "WaitTime": "--",
+          "WaitTimeStatus": "--",
+          "WaitTimeString": "--"
+        }
+      ],
+      "Name": "Ski School",
+      "OpenTrailsCount": 0,
+      "TotalTrailsCount": 0,
+      "Trails": []
+    }
+  ],
+  "Name": "Alpine Meadows",
+  "OperatingStatus": "--",
+  "ParkingLots": [],
+  "RoadOptions": [],
+  "SnowReport": {
+    "AdditionalText": "--",
+    "Alert": "--",
+    "AnnualAverageSnowfallCm": "--",
+    "AnnualAverageSnowfallIn": "--",
+    "BaseArea": {
+      "BaseCm": "96.52",
+      "BaseIn": "38.0",
+      "Last24HoursCm": "2.54",
+      "Last24HoursIn": "1.0",
+      "Last48HoursCm": "2.54",
+      "Last48HoursIn": "1.0",
+      "Last72HoursCm": "2.54",
+      "Last72HoursIn": "1.0",
+      "Last7DaysCm": "12.7",
+      "Last7DaysIn": "5.0",
+      "SinceLiftsClosedCm": "2.54",
+      "SinceLiftsClosedIn": "1.0"
+    },
+    "BaseConditions": "Machine Groomed Packed Powder",
+    "GroomedTrails": 22,
+    "LastUpdate": "2021-01-03T05:50:43-0800",
+    "LastUpdatedLift": {
+      "Summit Express": "delayed"
+    },
+    "LiftNotification": "--",
+    "MidMountainArea": {
+      "BaseCm": "144.78",
+      "BaseIn": "57.0",
+      "Last24HoursCm": "5.08",
+      "Last24HoursIn": "2.0",
+      "Last48HoursCm": "5.08",
+      "Last48HoursIn": "2.0",
+      "Last72HoursCm": "5.08",
+      "Last72HoursIn": "2.0",
+      "Last7DaysCm": "20.32",
+      "Last7DaysIn": "8.0",
+      "SinceLiftsClosedCm": "5.08",
+      "SinceLiftsClosedIn": "2.0"
+    },
+    "News": "--",
+    "OpenNightParks": 0,
+    "OpenNightTrails": 0,
+    "OpenTerrainAcres": "--",
+    "OpenTerrainHectares": "0.0",
+    "Report": "--",
+    "SafetyReport": "--",
+    "SeasonTotalCm": "152.4",
+    "SeasonTotalIn": "60.0",
+    "SecondarySeasonTotalCm": "220.98",
+    "SecondarySeasonTotalIn": "87.0",
+    "SnowBaseRangeCM": "--",
+    "SnowBaseRangeIn": "38 - 57",
+    "StormRadar": "--",
+    "StormRadarButtonText": "--",
+    "StormTotalCM": "5.08",
+    "StormTotalIn": "2.0",
+    "SummitArea": {
+      "BaseCm": "0.0",
+      "BaseIn": "--",
+      "Last24HoursCm": "0.0",
+      "Last24HoursIn": "--",
+      "Last48HoursCm": "0.0",
+      "Last48HoursIn": "--",
+      "Last72HoursCm": "0.0",
+      "Last72HoursIn": "--",
+      "Last7DaysCm": "0.0",
+      "Last7DaysIn": "--",
+      "SinceLiftsClosedCm": "0.0",
+      "SinceLiftsClosedIn": "--"
+    },
+    "TotalActivities": 1,
+    "TotalLifts": 12,
+    "TotalNightParks": 0,
+    "TotalNightTrails": 0,
+    "TotalOpenActivities": 1,
+    "TotalOpenLifts": 7,
+    "TotalOpenParks": 2,
+    "TotalOpenTrails": 53,
+    "TotalParks": 5,
+    "TotalTerrainAcres": "--",
+    "TotalTerrainHectares": "--",
+    "TotalTrails": 114
+  }
+}
