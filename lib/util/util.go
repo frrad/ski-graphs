@@ -4,29 +4,29 @@ import (
 	"testing"
 )
 
-func RoundtripBytes(t *testing.T, b []byte, f func([]byte) ([]byte, error)) {
-	outB, err := f(b)
+func RoundtripBytes(t *testing.T, before []byte, f func([]byte) ([]byte, error)) {
+	after, err := f(before)
 	if err != nil {
 		t.Errorf("failed to round trip bytes: %s", err)
 	}
 
-	CompareBytes(t, b, outB)
+	CompareBytes(t, before, after)
 }
 
-func CompareBytes(t *testing.T, a, b []byte) {
-	if len(a) != len(b) {
-		t.Errorf("different lens %d != %d", len(a), len(b))
+func CompareBytes(t *testing.T, before, after []byte) {
+	if len(before) != len(after) {
+		t.Errorf("different lens %d != %d", len(before), len(after))
 	}
 
-	min := len(a)
-	if len(b) < min {
-		min = len(b)
+	min := len(before)
+	if len(after) < min {
+		min = len(after)
 	}
 
 	brokenIx := -1
 
 	for i := 0; i < min; i++ {
-		if a[i] != b[i] {
+		if before[i] != after[i] {
 			t.Errorf("first mismatch at offset %d", i)
 			brokenIx = i
 			break
@@ -50,6 +50,6 @@ func CompareBytes(t *testing.T, a, b []byte) {
 			from = min
 		}
 
-		t.Errorf("snippet\na=\n%s\nb=\n%s", string(a[from:to]), string(b[from:to]))
+		t.Errorf("snippet\nbefore=\n%s\nafter=\n%s", string(before[from:to]), string(after[from:to]))
 	}
 }
