@@ -1,29 +1,21 @@
-package main
+package ikon
 
 import (
 	"bytes"
-	"embed"
 	"encoding/json"
-	"fmt"
+	"io/ioutil"
+	"path/filepath"
 	"testing"
 )
 
-//go:embed testinput/*
-var testFiles embed.FS
-
-const dirName = "testinput"
-
 func TestRoundTrip(t *testing.T) {
-	dir, err := testFiles.ReadDir(dirName)
+	dir, err := filepath.Glob("testinput/*.json")
 	if err != nil {
 		t.Error(err)
 	}
 
-	for _, x := range dir {
-		fileName := x.Name()
-		path := fmt.Sprintf("%s/%s", dirName, fileName)
-
-		b, err := testFiles.ReadFile(path)
+	for _, fileName := range dir {
+		b, err := ioutil.ReadFile(fileName)
 		if err != nil {
 			t.Error(err)
 		}
@@ -92,6 +84,5 @@ func CompareBytes(t *testing.T, a, b []byte) {
 		}
 
 		t.Errorf("snippet\na=\n%s\nb=\n%s", string(a[from:to]), string(b[from:to]))
-
 	}
 }

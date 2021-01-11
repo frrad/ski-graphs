@@ -13,6 +13,8 @@ import (
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	api "github.com/influxdata/influxdb-client-go/v2/api"
 	apiWrite "github.com/influxdata/influxdb-client-go/v2/api/write"
+
+	"github.com/frrad/ski-graphs/lib/ikon"
 )
 
 const (
@@ -65,7 +67,7 @@ func processFiles(files []string, influxClient api.WriteAPI) {
 	}
 }
 
-func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
+func pointFromLift(t time.Time, resort string, l ikon.Lift) []*apiWrite.Point {
 	tags := map[string]string{
 		"AreaName": l.MountainAreaName,
 		"LiftName": l.Name,
@@ -104,7 +106,7 @@ func parseFile(f string) (ResortTime, error) {
 	if err != nil {
 		return ResortTime{}, err
 	}
-	d := Response{}
+	d := ikon.Response{}
 	err = json.Unmarshal(b, &d)
 	if err != nil {
 		return ResortTime{}, err
@@ -117,7 +119,7 @@ func parseFile(f string) (ResortTime, error) {
 type ResortTime struct {
 	Resort   int
 	Time     time.Time
-	Response Response
+	Response ikon.Response
 }
 
 func parseName(filename string) (ResortTime, error) {
