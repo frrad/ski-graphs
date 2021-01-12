@@ -59,7 +59,7 @@ func processEpicFiles(files []string, influxClient api.WriteAPI) {
 			for _, state := range sta.States {
 				for _, lift := range state.Skilifts {
 
-					ps := pointFromLift(lift.AsLift(resp.Data.Name, x.Time))
+					ps := pointFromLift(lift.AsLift(resp.Data.Name, sta.Name, x.Time))
 
 					for _, p := range ps {
 						influxClient.WritePoint(p)

@@ -13,11 +13,12 @@ func TestConvertLift(t *testing.T) {
 		State: StateClosed,
 	}
 	expectedOut := lift.Lift{
-		Name:   "Cool Lift",
-		Resort: "Sweet Resort",
-		Status: lift.StatusOpen,
+		Name:     "Cool Lift",
+		AreaName: "Neat Area",
+		Resort:   "Sweet Resort",
+		Status:   lift.StatusOpen,
 	}
-	out := in.AsLift("Sweet Resort", time.Time{})
+	out := in.AsLift("Sweet Resort", "Neat Area", time.Time{})
 
 	if out != expectedOut {
 		t.Errorf("\n%+v\nnot same as expectation\n%+v", out, expectedOut)

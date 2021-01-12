@@ -7,12 +7,13 @@ import (
 	"github.com/frrad/ski-graphs/lib/lift"
 )
 
-func (l Lift) AsLift(resort string, t time.Time) lift.Lift {
+func (l Lift) AsLift(resort, area string, t time.Time) lift.Lift {
 	ans := lift.Lift{
-		Name:     l.Name,
-		Resort:   resort,
-		AreaName: l.SectorID,
-		Status:   l.State.AsStatus(t, l.StartHour, l.EndHour),
+		Name:            l.Name,
+		Resort:          resort,
+		AreaName:        area,
+		Status:          l.State.AsStatus(t, l.StartHour, l.EndHour),
+		MeasurementTime: t,
 	}
 
 	if waitTimeMinutes, ok := l.WaitMinutes.Get(); ok {

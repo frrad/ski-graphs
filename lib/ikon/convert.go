@@ -28,8 +28,24 @@ func (l Lift) AsLift(t time.Time, resort string) lift.Lift {
 func (s LiftStatus) AsStatus() lift.Status {
 	switch s {
 	case LiftStatusScheduled:
-		return lift.StatusScheduled
+		return lift.StatusClosed
+	case LiftStatusClosed:
+		return lift.StatusClosed
+	case LiftStatusWindHold:
+		return lift.StatusHold
+	case LiftStatusWindClosure:
+		return lift.StatusClosed
+	case LiftStatusPatrolHold:
+		return lift.StatusHold
+	case LiftStatusOpen:
+		return lift.StatusOpen
+	case LiftStatusMechanicalHold:
+		return lift.StatusHold
+	case LiftStatusAnticipatedWeatherImpact:
+		return lift.StatusClosed
+	case LiftStatusDelayed:
+		return lift.StatusClosed
 	}
-	log.Fatalf("how convert %s", s)
+	log.Fatalf("don't know how to convert ikon status %s", s)
 	return 0
 }
