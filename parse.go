@@ -33,7 +33,7 @@ func processIkonFiles(files []string, influxClient api.WriteAPI) {
 
 		for _, area := range resp.MountainAreas {
 			for _, l := range area.Lifts {
-				ps := pointFromLift(x.Time, l.AsLift(resp.Name))
+				ps := pointFromLift(l.AsLift(x.Time, resp.Name))
 
 				for _, p := range ps {
 					influxClient.WritePoint(p)
@@ -59,7 +59,7 @@ func processEpicFiles(files []string, influxClient api.WriteAPI) {
 			for _, state := range sta.States {
 				for _, lift := range state.Skilifts {
 
-					ps := pointFromLift(x.Time, lift.AsLift(resp.Data.Name))
+					ps := pointFromLift(lift.AsLift(resp.Data.Name, x.Time))
 
 					for _, p := range ps {
 						influxClient.WritePoint(p)
@@ -71,7 +71,7 @@ func processEpicFiles(files []string, influxClient api.WriteAPI) {
 	}
 }
 
-func pointFromLift(t time.Time, l lift.Lift) []*apiWrite.Point {
+func pointFromLift(l lift.Lift) []*apiWrite.Point {
 	ans := []*apiWrite.Point{}
 
 	for statusName, val := range l.Status.OneHot() {
@@ -87,7 +87,7 @@ func pointFromLift(t time.Time, l lift.Lift) []*apiWrite.Point {
 			"lift-status-count",
 			tags,
 			fields,
-			t,
+			l.MeasurementTime,
 		))
 	}
 
@@ -103,22 +103,22 @@ func pointFromLift(t time.Time, l lift.Lift) []*apiWrite.Point {
 		"lift-status",
 		tags,
 		fields,
-		t,
+		l.MeasurementTime,
 	))
 
-	if wt := l.WaitTimeSeconds; wt != nil {
+	if wt := l.WaitTime; wt != nil {
 		tags := map[string]string{
 			"AreaName": l.AreaName,
 			"LiftName": l.Name,
 			"Resort":   l.Resort,
 		}
-		fields := map[string]interface{}{"Wait": *wt}
+		fields := map[string]interface{}{"Wait": wt.Seconds()}
 		log.Println(tags, fields)
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-wait",
 			tags,
 			fields,
-			t,
+			l.MeasurementTime,
 		))
 	}
 

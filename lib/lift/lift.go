@@ -2,14 +2,16 @@ package lift
 
 import (
 	"log"
+	"time"
 )
 
 type Lift struct {
+	MeasurementTime time.Time
 	Name            string
 	Resort          string
 	AreaName        string
 	Status          Status
-	WaitTimeSeconds *int
+	WaitTime        *time.Duration
 }
 
 type Status int

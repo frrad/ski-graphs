@@ -16,8 +16,8 @@ func (l Lift) AsLift(resort string, t time.Time) lift.Lift {
 	}
 
 	if waitTimeMinutes, ok := l.WaitMinutes.Get(); ok {
-		waitTimeMinutes *= 60
-		ans.WaitTimeSeconds = &waitTimeMinutes
+		waitTime := time.Minute * time.Duration(waitTimeMinutes)
+		ans.WaitTime = &waitTime
 	}
 
 	return ans
