@@ -9,17 +9,14 @@ import (
 	api "github.com/influxdata/influxdb-client-go/v2/api"
 )
 
-const (
-	bucket = "bucket"
-)
-
 func main() {
 	influxToken := flag.String("influx-token", "", "influxDB token")
 	influxURL := flag.String("influx-url", "http://localhost:8086", "influxDB url")
 	influxOrg := flag.String("influx-org", "", "influxDB url")
+	influxBucket := flag.String("influx-bucket", "", "influxDB bucket")
 	flag.Parse()
 
-	writeClient, cleanup := setupInfluxClient(*influxURL, *influxToken, *influxOrg)
+	writeClient, cleanup := setupInfluxClient(*influxURL, *influxToken, *influxOrg, *influxBucket)
 	defer cleanup()
 
 	files, err := filepath.Glob("*.json")
@@ -40,7 +37,7 @@ func main() {
 
 }
 
-func setupInfluxClient(url, token, org string) (api.WriteAPI, func()) {
+func setupInfluxClient(url, token, org, bucket string) (api.WriteAPI, func()) {
 	client := influxdb2.NewClientWithOptions(url, token, influxdb2.DefaultOptions())
 	writeAPI := client.WriteAPI(org, bucket)
 
