@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"path"
 	"strconv"
 	"strings"
 	"time"
@@ -157,7 +158,9 @@ type ResortTime struct {
 	Time   time.Time
 }
 
-func parseName(filename string) (ResortTime, error) {
+func parseName(filepath string) (ResortTime, error) {
+	_, filename := path.Split(filepath)
+
 	sps := strings.Split(filename, ".")
 	if len(sps) != 3 {
 		return ResortTime{}, fmt.Errorf("expected three parts %s", filename)

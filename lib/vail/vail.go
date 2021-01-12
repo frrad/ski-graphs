@@ -1,5 +1,11 @@
 package vail
 
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
+
 type Response struct {
 	Data struct {
 		Name               string `json:"name"`
@@ -52,7 +58,44 @@ type Lift struct {
 	WaitMinutes      StringInt `json:"wait"`
 }
 
-type State string
+type State int
+
+const (
+	StateOpen State = iota
+	StateClosed
+	StateMax
+)
+
+func (s State) String() string {
+	switch s {
+	case StateOpen:
+		return "O"
+	case StateClosed:
+		return "F"
+	}
+	log.Fatalf("how string %d", s)
+	return ""
+}
+
+func (s *State) UnmarshalJSON(b []byte) error {
+	for i := State(0); i < StateMax; i++ {
+		bs, err := i.MarshalJSON()
+		if err != nil {
+			return err
+		}
+
+		if string(bs) == string(b) {
+			*s = i
+			return nil
+		}
+	}
+
+	return fmt.Errorf("can't unmarshal vail.State `%s`", string(b))
+}
+
+func (s State) MarshalJSON() ([]byte, error) {
+	return []byte(strconv.Quote(s.String())), nil
+}
 
 type Station struct {
 	Dateinfo string `json:"dateinfo"`

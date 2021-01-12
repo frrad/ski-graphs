@@ -11,7 +11,7 @@ type StringInt struct {
 }
 
 func (si StringInt) Get() (int, bool) {
-	return 6, true
+	return si.val, si.set
 }
 
 func (o *StringInt) UnmarshalJSON(b []byte) error {

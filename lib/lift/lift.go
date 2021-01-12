@@ -16,6 +16,9 @@ type Status int
 
 const (
 	StatusScheduled Status = iota
+	StatusOpen
+	StatusClosed
+	StatusHold
 	StatusMax
 )
 
@@ -34,6 +37,12 @@ func (s Status) String() string {
 	switch s {
 	case StatusScheduled:
 		return "Scheduled"
+	case StatusOpen:
+		return "Open"
+	case StatusClosed:
+		return "Closed"
+	case StatusHold:
+		return "Hold"
 	}
 
 	log.Fatalf("how string %d", s)
