@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"path/filepath"
 
@@ -9,14 +10,16 @@ import (
 )
 
 const (
-	organization = "organization"
-	bucket       = "bucket"
-	token        = "zI_gNzqimDn58hwhA1HtiJaSmFpYkThP68zD23yGp8_Q8YzepH5nXasCi8eY5XJcCfF17u7Re18JEoc36UHeLw=="
-	influxURL    = "http://localhost:8086"
+	bucket = "bucket"
 )
 
 func main() {
-	writeClient, cleanup := setupInfluxClient()
+	influxToken := flag.String("influx-token", "", "influxDB token")
+	influxURL := flag.String("influx-url", "http://localhost:8086", "influxDB url")
+	influxOrg := flag.String("influx-org", "", "influxDB url")
+	flag.Parse()
+
+	writeClient, cleanup := setupInfluxClient(*influxURL, *influxToken, *influxOrg)
 	defer cleanup()
 
 	files, err := filepath.Glob("*.json")
@@ -24,12 +27,22 @@ func main() {
 		log.Fatal(err)
 	}
 
+	go func(writeClient api.WriteAPI) {
+		errChan := writeClient.Errors()
+		for err := range errChan {
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+	}(writeClient)
+
 	processFiles(files, writeClient)
+
 }
 
-func setupInfluxClient() (api.WriteAPI, func()) {
-	client := influxdb2.NewClientWithOptions(influxURL, token, influxdb2.DefaultOptions())
-	writeAPI := client.WriteAPI(organization, bucket)
+func setupInfluxClient(url, token, org string) (api.WriteAPI, func()) {
+	client := influxdb2.NewClientWithOptions(url, token, influxdb2.DefaultOptions())
+	writeAPI := client.WriteAPI(org, bucket)
 
 	cleanup := func() {
 		writeAPI.Flush()

@@ -174,6 +174,8 @@ const (
 	LiftStatusScheduled LiftStatus = iota
 	LiftStatusClosed
 	LiftStatusWindHold
+	LiftStatusWindClosure
+	LiftStatusPatrolHold
 	LiftStatusOpen
 	LiftStatusMechanicalHold
 	LiftStatusAnticipatedWeatherImpact
@@ -189,6 +191,10 @@ func (s LiftStatus) String() string {
 		return "Closed"
 	case LiftStatusWindHold:
 		return "Wind Hold"
+	case LiftStatusPatrolHold:
+		return "Patrol Hold"
+	case LiftStatusWindClosure:
+		return "Wind Closure"
 	case LiftStatusOpen:
 		return "Open"
 	case LiftStatusMechanicalHold:
