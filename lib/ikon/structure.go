@@ -209,17 +209,6 @@ func (s LiftStatus) String() string {
 	return ""
 }
 
-func (s LiftStatus) OneHot() map[string]interface{} {
-	ans := map[string]interface{}{}
-	for i := LiftStatus(0); i < LiftStatusMax; i++ {
-		ans[i.String()] = 0
-		if i == s {
-			ans[i.String()] = 1
-		}
-	}
-	return ans
-}
-
 type Lift struct {
 	FirstTracks      string     `json:"FirstTracks"`
 	Hours            Hours      `json:"Hours"`

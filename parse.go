@@ -14,18 +14,25 @@ import (
 	apiWrite "github.com/influxdata/influxdb-client-go/v2/api/write"
 
 	"github.com/frrad/ski-graphs/lib/ikon"
+	"github.com/frrad/ski-graphs/lib/lift"
+	"github.com/frrad/ski-graphs/lib/vail"
 )
 
-func processFiles(files []string, influxClient api.WriteAPI) {
+func processIkonFiles(files []string, influxClient api.WriteAPI) {
 	for _, f := range files {
-		x, err := parseFile(f)
+		x, err := parseName(f)
+		if err != nil {
+			log.Fatalf("error parsing name %s: %s", f, err)
+		}
+
+		resp, err := parseIkon(f)
 		if err != nil {
 			log.Fatalf("error parsing %s: %s", f, err)
 		}
 
-		for _, area := range x.Response.MountainAreas {
+		for _, area := range resp.MountainAreas {
 			for _, l := range area.Lifts {
-				ps := pointFromLift(x.Time, x.Response.Name, l)
+				ps := pointFromLift(x.Time, l.AsLift(resp.Name))
 
 				for _, p := range ps {
 					influxClient.WritePoint(p)
@@ -35,40 +42,77 @@ func processFiles(files []string, influxClient api.WriteAPI) {
 	}
 }
 
-func pointFromLift(t time.Time, resort string, l ikon.Lift) []*apiWrite.Point {
+func processEpicFiles(files []string, influxClient api.WriteAPI) {
+	for _, f := range files {
+		x, err := parseName(f)
+		if err != nil {
+			log.Fatalf("error parsing name %s: %s", f, err)
+		}
 
+		resp, err := parseEpic(f)
+		if err != nil {
+			log.Fatalf("error parsing %s: %s", f, err)
+		}
+
+		for _, sta := range resp.Data.Stations {
+			for _, state := range sta.States {
+				for _, lift := range state.Skilifts {
+
+					ps := pointFromLift(x.Time, lift.AsLift(resp.Data.Name))
+
+					for _, p := range ps {
+						influxClient.WritePoint(p)
+					}
+
+				}
+			}
+		}
+	}
+}
+
+func pointFromLift(t time.Time, l lift.Lift) []*apiWrite.Point {
 	ans := []*apiWrite.Point{}
 
 	for statusName, val := range l.Status.OneHot() {
 		tags := map[string]string{
-			"AreaName": l.MountainAreaName,
+			"AreaName": l.AreaName,
 			"LiftName": l.Name,
-			"Resort":   resort,
+			"Resort":   l.Resort,
 			"Status":   statusName,
 		}
-		fields := map[string]interface{}{"count": val}
-
+		fields := map[string]interface{}{"Count": val}
 		log.Println(tags, fields)
-
 		ans = append(ans, influxdb2.NewPoint(
-			"lift",
+			"lift-status-count",
 			tags,
 			fields,
 			t,
 		))
-
 	}
 
-	if wt, ok := l.WaitTime.Get(); ok {
+	tags := map[string]string{
+		"AreaName": l.AreaName,
+		"LiftName": l.Name,
+		"Resort":   l.Resort,
+		"Status":   l.Status.String(),
+	}
+	fields := map[string]interface{}{"Status": l.Status.String()}
+	log.Println(tags, fields)
+	ans = append(ans, influxdb2.NewPoint(
+		"lift-status",
+		tags,
+		fields,
+		t,
+	))
+
+	if wt := l.WaitTimeSeconds; wt != nil {
 		tags := map[string]string{
-			"AreaName": l.MountainAreaName,
+			"AreaName": l.AreaName,
 			"LiftName": l.Name,
-			"Resort":   resort,
+			"Resort":   l.Resort,
 		}
-		fields := map[string]interface{}{"wait": wt}
-
+		fields := map[string]interface{}{"Wait": *wt}
 		log.Println(tags, fields)
-
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-wait",
 			tags,
@@ -80,30 +124,37 @@ func pointFromLift(t time.Time, resort string, l ikon.Lift) []*apiWrite.Point {
 	return ans
 }
 
-func parseFile(f string) (ResortTime, error) {
-	rt, err := parseName(f)
-	if err != nil {
-		return ResortTime{}, err
-	}
-
+func parseIkon(f string) (ikon.Response, error) {
 	b, err := ioutil.ReadFile(f)
 	if err != nil {
-		return ResortTime{}, err
+		return ikon.Response{}, err
 	}
 	d := ikon.Response{}
 	err = json.Unmarshal(b, &d)
 	if err != nil {
-		return ResortTime{}, err
+		return ikon.Response{}, err
 	}
 
-	rt.Response = d
-	return rt, nil
+	return d, nil
+}
+
+func parseEpic(f string) (vail.Response, error) {
+	b, err := ioutil.ReadFile(f)
+	if err != nil {
+		return vail.Response{}, err
+	}
+	d := vail.Response{}
+	err = json.Unmarshal(b, &d)
+	if err != nil {
+		return vail.Response{}, err
+	}
+
+	return d, nil
 }
 
 type ResortTime struct {
-	Resort   int
-	Time     time.Time
-	Response ikon.Response
+	Resort int
+	Time   time.Time
 }
 
 func parseName(filename string) (ResortTime, error) {

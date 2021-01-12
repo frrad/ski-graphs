@@ -14,15 +14,13 @@ func main() {
 	influxURL := flag.String("influx-url", "http://localhost:8086", "influxDB url")
 	influxOrg := flag.String("influx-org", "", "influxDB url")
 	influxBucket := flag.String("influx-bucket", "", "influxDB bucket")
+
+	epicGlob := flag.String("epic-glob", "", "epic glob")
+	ikonGlob := flag.String("ikon-glob", "", "ikon glob")
 	flag.Parse()
 
 	writeClient, cleanup := setupInfluxClient(*influxURL, *influxToken, *influxOrg, *influxBucket)
 	defer cleanup()
-
-	files, err := filepath.Glob("*.json")
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	go func(writeClient api.WriteAPI) {
 		errChan := writeClient.Errors()
@@ -33,8 +31,21 @@ func main() {
 		}
 	}(writeClient)
 
-	processFiles(files, writeClient)
+	if *ikonGlob != "" {
+		files, err := filepath.Glob(*ikonGlob)
+		if err != nil {
+			log.Fatal(err)
+		}
+		processIkonFiles(files, writeClient)
+	}
 
+	if *epicGlob != "" {
+		files, err := filepath.Glob(*epicGlob)
+		if err != nil {
+			log.Fatal(err)
+		}
+		processEpicFiles(files, writeClient)
+	}
 }
 
 func setupInfluxClient(url, token, org, bucket string) (api.WriteAPI, func()) {
