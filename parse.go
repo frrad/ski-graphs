@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -13,38 +12,9 @@ import (
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	api "github.com/influxdata/influxdb-client-go/v2/api"
 	apiWrite "github.com/influxdata/influxdb-client-go/v2/api/write"
+
+	"github.com/frrad/ski-graphs/lib/ikon"
 )
-
-const (
-	organization = "organization"
-	bucket       = "bucket"
-	token        = "zI_gNzqimDn58hwhA1HtiJaSmFpYkThP68zD23yGp8_Q8YzepH5nXasCi8eY5XJcCfF17u7Re18JEoc36UHeLw=="
-	influxURL    = "http://localhost:8086"
-)
-
-func setupInfluxClient() (api.WriteAPI, func()) {
-	client := influxdb2.NewClientWithOptions(influxURL, token, influxdb2.DefaultOptions())
-	writeAPI := client.WriteAPI(organization, bucket)
-
-	cleanup := func() {
-		writeAPI.Flush()
-		client.Close()
-	}
-
-	return writeAPI, cleanup
-}
-
-func main() {
-	writeClient, cleanup := setupInfluxClient()
-	defer cleanup()
-
-	files, err := filepath.Glob("*.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	processFiles(files, writeClient)
-}
 
 func processFiles(files []string, influxClient api.WriteAPI) {
 	for _, f := range files {
@@ -65,7 +35,7 @@ func processFiles(files []string, influxClient api.WriteAPI) {
 	}
 }
 
-func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
+func pointFromLift(t time.Time, resort string, l ikon.Lift) []*apiWrite.Point {
 
 	ans := []*apiWrite.Point{}
 
@@ -89,13 +59,13 @@ func pointFromLift(t time.Time, resort string, l Lift) []*apiWrite.Point {
 
 	}
 
-	if l.WaitTime.set {
+	if wt, ok := l.WaitTime.Get(); ok {
 		tags := map[string]string{
 			"AreaName": l.MountainAreaName,
 			"LiftName": l.Name,
 			"Resort":   resort,
 		}
-		fields := map[string]interface{}{"wait": l.WaitTime.val}
+		fields := map[string]interface{}{"wait": wt}
 
 		log.Println(tags, fields)
 
@@ -120,7 +90,7 @@ func parseFile(f string) (ResortTime, error) {
 	if err != nil {
 		return ResortTime{}, err
 	}
-	d := Response{}
+	d := ikon.Response{}
 	err = json.Unmarshal(b, &d)
 	if err != nil {
 		return ResortTime{}, err
@@ -133,7 +103,7 @@ func parseFile(f string) (ResortTime, error) {
 type ResortTime struct {
 	Resort   int
 	Time     time.Time
-	Response Response
+	Response ikon.Response
 }
 
 func parseName(filename string) (ResortTime, error) {

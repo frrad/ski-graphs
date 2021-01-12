@@ -1,4 +1,4 @@
-package main
+package ikon
 
 import (
 	"fmt"
@@ -36,6 +36,8 @@ func (o *OptionInt) UnmarshalJSON(b []byte) error {
 
 	return nil
 }
+
+func (o OptionInt) Get() (int, bool) { return o.val, o.set }
 
 func (o OptionInt) MarshalJSON() ([]byte, error) {
 	if !o.set {
