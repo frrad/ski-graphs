@@ -1,4 +1,4 @@
-package ikon
+package vail
 
 import (
 	"bytes"
@@ -16,7 +16,10 @@ func TestRoundTrip(t *testing.T) {
 		t.Error(err)
 	}
 
+	t.Log("found", len(dir), "test files")
 	for _, fileName := range dir {
+		t.Log(fileName)
+
 		b, err := ioutil.ReadFile(fileName)
 		if err != nil {
 			t.Error(err)
