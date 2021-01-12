@@ -22,35 +22,37 @@ type Response struct {
 }
 
 type Lift struct {
-	Capacity         string  `json:"capacity"`
-	Debit            string  `json:"debit"`
-	Duration         string  `json:"duration"`
-	Elevation        string  `json:"elevation"`
-	EndAltitude      string  `json:"endAltitude"`
-	EndHour          string  `json:"endHour"`
-	Exposition       string  `json:"exposition"`
-	Length           string  `json:"length"`
-	LiftGroupID      string  `json:"liftGroupId"`
-	LiftIDInGroup    string  `json:"liftIdInGroup"`
-	Message          *string `json:"message,omitempty"`
-	Name             string  `json:"name"`
-	OffbeatEndHour   string  `json:"offbeatEndHour"`
-	OffbeatStartHour string  `json:"offbeatStartHour"`
-	SectorID         string  `json:"sectorId"`
-	Speed            string  `json:"speed"`
-	StartAltitude    string  `json:"startAltitude"`
-	StartHour        string  `json:"startHour"`
-	State            string  `json:"state"`
-	StateDate        string  `json:"stateDate"`
-	StateType        string  `json:"stateType"`
-	StationID        string  `json:"stationId"`
-	Type             string  `json:"type"`
-	UpdatedDate      string  `json:"updatedDate"`
-	UpdatedEndHour   string  `json:"updatedEndHour"`
-	UpdatedStartHour string  `json:"updatedStartHour"`
-	UUID             *int64  `json:"uuid,omitempty"`
-	Wait             string  `json:"wait"`
+	Capacity         string    `json:"capacity"`
+	Debit            string    `json:"debit"`
+	Duration         string    `json:"duration"`
+	Elevation        string    `json:"elevation"`
+	EndAltitude      string    `json:"endAltitude"`
+	EndHour          string    `json:"endHour"`
+	Exposition       string    `json:"exposition"`
+	Length           string    `json:"length"`
+	LiftGroupID      string    `json:"liftGroupId"`
+	LiftIDInGroup    string    `json:"liftIdInGroup"`
+	Message          *string   `json:"message,omitempty"`
+	Name             string    `json:"name"`
+	OffbeatEndHour   string    `json:"offbeatEndHour"`
+	OffbeatStartHour string    `json:"offbeatStartHour"`
+	SectorID         string    `json:"sectorId"`
+	Speed            string    `json:"speed"`
+	StartAltitude    string    `json:"startAltitude"`
+	StartHour        string    `json:"startHour"`
+	State            State     `json:"state"`
+	StateDate        string    `json:"stateDate"`
+	StateType        string    `json:"stateType"`
+	StationID        string    `json:"stationId"`
+	Type             string    `json:"type"`
+	UpdatedDate      string    `json:"updatedDate"`
+	UpdatedEndHour   string    `json:"updatedEndHour"`
+	UpdatedStartHour string    `json:"updatedStartHour"`
+	UUID             *int64    `json:"uuid,omitempty"`
+	WaitMinutes      StringInt `json:"wait"`
 }
+
+type State string
 
 type Station struct {
 	Dateinfo string `json:"dateinfo"`
