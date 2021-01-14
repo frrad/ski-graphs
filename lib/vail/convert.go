@@ -66,9 +66,9 @@ func (liftState State) AsStatus(resortOpen bool) (lift.Status, error) {
 	case liftState == StateClosed && !resortOpen:
 		return lift.StatusClosed, nil
 	case liftState == StateP && resortOpen:
-		return lift.StatusClosed, nil
+		return lift.StatusUnknown, nil
 	case liftState == StateP && !resortOpen:
-		return lift.StatusClosed, nil
+		return lift.StatusUnknown, nil
 	}
 
 	return -1, fmt.Errorf("don't know how to convert %s", liftState)

@@ -20,6 +20,7 @@ const (
 	StatusScheduled Status = iota // not open right now but will be in the morning
 	StatusClosed                  // during the day "not open" at night "won't be open tomorrow"
 	StatusOpen                    // open!
+	StatusUnknown                 // for unknow states. ideally never used.
 	statusMax                     // special max value
 )
 
@@ -42,6 +43,8 @@ func (s Status) String() string {
 		return "Open"
 	case StatusClosed:
 		return "Closed"
+	case StatusUnknown:
+		return "Unknown"
 	}
 
 	log.Fatalf("how string %d", s)
