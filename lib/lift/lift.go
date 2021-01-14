@@ -17,16 +17,15 @@ type Lift struct {
 type Status int
 
 const (
-	StatusScheduled Status = iota
-	StatusOpen
-	StatusClosed
-	StatusHold
-	StatusMax
+	StatusScheduled Status = iota // not open right now but will be in the morning
+	StatusClosed                  // during the day "not open" at night "won't be open tomorrow"
+	StatusOpen                    // open!
+	statusMax                     // special max value
 )
 
 func (s Status) OneHot() map[string]interface{} {
 	ans := map[string]interface{}{}
-	for i := Status(0); i < StatusMax; i++ {
+	for i := Status(0); i < statusMax; i++ {
 		ans[i.String()] = 0
 		if i == s {
 			ans[i.String()] = 1
@@ -43,8 +42,6 @@ func (s Status) String() string {
 		return "Open"
 	case StatusClosed:
 		return "Closed"
-	case StatusHold:
-		return "Hold"
 	}
 
 	log.Fatalf("how string %d", s)

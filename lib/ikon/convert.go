@@ -28,19 +28,19 @@ func (l Lift) AsLift(t time.Time, resort string) lift.Lift {
 func (s LiftStatus) AsStatus() lift.Status {
 	switch s {
 	case LiftStatusScheduled:
-		return lift.StatusClosed
+		return lift.StatusScheduled
 	case LiftStatusClosed:
 		return lift.StatusClosed
 	case LiftStatusWindHold:
-		return lift.StatusHold
+		return lift.StatusClosed
 	case LiftStatusWindClosure:
 		return lift.StatusClosed
 	case LiftStatusPatrolHold:
-		return lift.StatusHold
+		return lift.StatusClosed
 	case LiftStatusOpen:
 		return lift.StatusOpen
 	case LiftStatusMechanicalHold:
-		return lift.StatusHold
+		return lift.StatusClosed
 	case LiftStatusAnticipatedWeatherImpact:
 		return lift.StatusClosed
 	case LiftStatusDelayed:
