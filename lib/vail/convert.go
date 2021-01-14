@@ -1,6 +1,7 @@
 package vail
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -10,11 +11,17 @@ import (
 func (l Lift) AsLift(resort, area string, t time.Time) lift.Lift {
 	loc := resortLocation(resort)
 
+	isOpen := isOpen(t, loc, l.StartHour, l.EndHour)
+	stat, err := l.State.AsStatus(isOpen)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	ans := lift.Lift{
 		Name:            l.Name,
 		Resort:          resort,
 		AreaName:        area,
-		Status:          l.State.AsStatus(t, loc, l.StartHour, l.EndHour),
+		Status:          stat,
 		MeasurementTime: t,
 	}
 
@@ -43,21 +50,26 @@ func resortLocation(resortName string) *time.Location {
 	return l
 }
 
-func (liftState State) AsStatus(measuredAt time.Time, resortLoc *time.Location, startHour, endHour string) lift.Status {
+func isOpen(measuredAt time.Time, resortLoc *time.Location, startHour, endHour string) bool {
 	timeOfDayStr := measuredAt.In(resortLoc).Format("15:04")
-	resortOpen := startHour <= timeOfDayStr && timeOfDayStr <= endHour
+	return startHour <= timeOfDayStr && timeOfDayStr <= endHour
+}
 
+func (liftState State) AsStatus(resortOpen bool) (lift.Status, error) {
 	switch {
 	case liftState == StateOpen && resortOpen:
-		return lift.StatusOpen
+		return lift.StatusOpen, nil
 	case liftState == StateOpen && !resortOpen:
-		return lift.StatusScheduled
+		return lift.StatusScheduled, nil
 	case liftState == StateClosed && resortOpen:
-		return lift.StatusClosed
+		return lift.StatusClosed, nil
 	case liftState == StateClosed && !resortOpen:
-		return lift.StatusClosed
+		return lift.StatusClosed, nil
+	case liftState == StateP && resortOpen:
+		return lift.StatusClosed, nil
+	case liftState == StateP && !resortOpen:
+		return lift.StatusClosed, nil
 	}
 
-	log.Fatalf("how convert %s", liftState)
-	return -1
+	return -1, fmt.Errorf("don't know how to convert %s", liftState)
 }
