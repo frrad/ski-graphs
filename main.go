@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
 	influxToken := flag.String("influx-token", "", "influxDB token")
 	influxURL := flag.String("influx-url", "http://localhost:8086", "influxDB url")
 	influxOrg := flag.String("influx-org", "", "influxDB url")
@@ -17,7 +19,14 @@ func main() {
 
 	epicGlob := flag.String("epic-glob", "", "epic glob")
 	ikonGlob := flag.String("ikon-glob", "", "ikon glob")
+
+	seenFile := flag.String("seen-file", "", "seen file")
 	flag.Parse()
+
+	seen, err := NewSeen(*seenFile)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	writeClient, cleanup := setupInfluxClient(*influxURL, *influxToken, *influxOrg, *influxBucket)
 	defer cleanup()
@@ -36,7 +45,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		processIkonFiles(files, writeClient)
+		processFiles(files, seen, processIkonFiles, writeClient)
 	}
 
 	if *epicGlob != "" {
@@ -44,7 +53,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		processEpicFiles(files, writeClient)
+		processFiles(files, seen, processEpicFiles, writeClient)
 	}
 }
 
