@@ -45,6 +45,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		log.Println("processing ikon files")
 		processFiles(files, seen, processIkonFiles, writeClient)
 	}
 
@@ -53,6 +54,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		log.Println("processing epic files")
 		processFiles(files, seen, processEpicFiles, writeClient)
 	}
 }

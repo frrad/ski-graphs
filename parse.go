@@ -42,8 +42,11 @@ func processIkonFiles(x ResortTime, b []byte) []*apiWrite.Point {
 }
 
 func processFiles(files []string, s *Seen, fu func(ResortTime, []byte) []*apiWrite.Point, influxClient api.WriteAPI) {
+	skipped, processed := 0, 0
+
 	for _, f := range files {
 		if s.Saw(f) {
+			skipped++
 			continue
 		}
 
@@ -61,8 +64,12 @@ func processFiles(files []string, s *Seen, fu func(ResortTime, []byte) []*apiWri
 			influxClient.WritePoint(p)
 		}
 
+		processed++
 		s.Mark(f)
 	}
+
+	log.Printf("%d/%d files skipped\n", skipped, len(files))
+	log.Printf("%d/%d files processed\n", processed, len(files))
 }
 
 func processEpicFiles(x ResortTime, b []byte) []*apiWrite.Point {
@@ -103,7 +110,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 			"Status":   statusName,
 		}
 		fields := map[string]interface{}{"Count": val}
-		log.Println(tags, fields)
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-status-count",
 			tags,
@@ -119,7 +125,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 		"Status":   l.Status.String(),
 	}
 	fields := map[string]interface{}{"Status": l.Status.String()}
-	log.Println(tags, fields)
 	ans = append(ans, influxdb2.NewPoint(
 		"lift-status",
 		tags,
@@ -134,7 +139,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 			"Resort":   l.Resort,
 		}
 		fields := map[string]interface{}{"Wait": wt.Seconds()}
-		log.Println(tags, fields)
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-wait",
 			tags,
