@@ -58,3 +58,21 @@ func TestConvertLift(t *testing.T) {
 		}
 	}
 }
+
+func TestConvertState(t *testing.T) {
+	for i := State(0); i < stateMax; i++ {
+		tf := true
+		_, err := i.AsStatus(tf)
+		if err != nil {
+			t.Errorf("error converting state %s with %t: %s", i, tf, err)
+		}
+
+		tf = false
+		_, err = i.AsStatus(tf)
+		if err != nil {
+			t.Errorf("error converting state %s with %t: %s", i, tf, err)
+		}
+
+	}
+
+}

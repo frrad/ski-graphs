@@ -63,7 +63,8 @@ type State int
 const (
 	StateOpen State = iota
 	StateClosed
-	StateMax
+	StateP
+	stateMax
 )
 
 func (s State) String() string {
@@ -72,13 +73,15 @@ func (s State) String() string {
 		return "O"
 	case StateClosed:
 		return "F"
+	case StateP:
+		return "P"
 	}
 	log.Fatalf("how string %d", s)
 	return ""
 }
 
 func (s *State) UnmarshalJSON(b []byte) error {
-	for i := State(0); i < StateMax; i++ {
+	for i := State(0); i < stateMax; i++ {
 		bs, err := i.MarshalJSON()
 		if err != nil {
 			return err
