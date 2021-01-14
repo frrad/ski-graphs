@@ -19,56 +19,84 @@ import (
 	"github.com/frrad/ski-graphs/lib/vail"
 )
 
-func processIkonFiles(files []string, influxClient api.WriteAPI) {
-	for _, f := range files {
-		x, err := parseName(f)
-		if err != nil {
-			log.Fatalf("error parsing name %s: %s", f, err)
-		}
+func processIkonFiles(x ResortTime, b []byte) []*apiWrite.Point {
+	pts := []*apiWrite.Point{}
 
-		resp, err := parseIkon(f)
-		if err != nil {
-			log.Fatalf("error parsing %s: %s", f, err)
-		}
+	resp := ikon.Response{}
+	err := json.Unmarshal(b, &resp)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-		for _, area := range resp.MountainAreas {
-			for _, l := range area.Lifts {
-				ps := pointFromLift(l.AsLift(x.Time, resp.Name))
+	for _, area := range resp.MountainAreas {
+		for _, l := range area.Lifts {
+			ps := pointFromLift(l.AsLift(x.Time, resp.Name))
 
-				for _, p := range ps {
-					influxClient.WritePoint(p)
-				}
+			for _, p := range ps {
+				pts = append(pts, p)
 			}
 		}
 	}
+
+	return pts
 }
 
-func processEpicFiles(files []string, influxClient api.WriteAPI) {
+func processFiles(files []string, s *Seen, fu func(ResortTime, []byte) []*apiWrite.Point, influxClient api.WriteAPI) {
+	skipped, processed := 0, 0
+
 	for _, f := range files {
+		if s.Saw(f) {
+			skipped++
+			continue
+		}
+
 		x, err := parseName(f)
 		if err != nil {
 			log.Fatalf("error parsing name %s: %s", f, err)
 		}
 
-		resp, err := parseEpic(f)
+		b, err := ioutil.ReadFile(f)
 		if err != nil {
-			log.Fatalf("error parsing %s: %s", f, err)
+			log.Fatalf("error reading file %s: %s", f, err)
+		}
+		pts := fu(x, b)
+		for _, p := range pts {
+			influxClient.WritePoint(p)
 		}
 
-		for _, sta := range resp.Data.Stations {
-			for _, state := range sta.States {
-				for _, lift := range state.Skilifts {
+		processed++
+		s.Mark(f)
+	}
 
-					ps := pointFromLift(lift.AsLift(resp.Data.Name, sta.Name, x.Time))
+	log.Printf("%d/%d files skipped\n", skipped, len(files))
+	log.Printf("%d/%d files processed\n", processed, len(files))
+}
 
-					for _, p := range ps {
-						influxClient.WritePoint(p)
-					}
+func processEpicFiles(x ResortTime, b []byte) []*apiWrite.Point {
+	pts := []*apiWrite.Point{}
 
+	resp := vail.Response{}
+	err := json.Unmarshal(b, &resp)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, sta := range resp.Data.Stations {
+		for _, state := range sta.States {
+			for _, lift := range state.Skilifts {
+
+				ps := pointFromLift(lift.AsLift(resp.Data.Name, sta.Name, x.Time))
+
+				for _, p := range ps {
+					pts = append(pts, p)
 				}
+
 			}
 		}
+
 	}
+
+	return pts
 }
 
 func pointFromLift(l lift.Lift) []*apiWrite.Point {
@@ -82,7 +110,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 			"Status":   statusName,
 		}
 		fields := map[string]interface{}{"Count": val}
-		log.Println(tags, fields)
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-status-count",
 			tags,
@@ -98,7 +125,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 		"Status":   l.Status.String(),
 	}
 	fields := map[string]interface{}{"Status": l.Status.String()}
-	log.Println(tags, fields)
 	ans = append(ans, influxdb2.NewPoint(
 		"lift-status",
 		tags,
@@ -113,7 +139,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 			"Resort":   l.Resort,
 		}
 		fields := map[string]interface{}{"Wait": wt.Seconds()}
-		log.Println(tags, fields)
 		ans = append(ans, influxdb2.NewPoint(
 			"lift-wait",
 			tags,
@@ -123,34 +148,6 @@ func pointFromLift(l lift.Lift) []*apiWrite.Point {
 	}
 
 	return ans
-}
-
-func parseIkon(f string) (ikon.Response, error) {
-	b, err := ioutil.ReadFile(f)
-	if err != nil {
-		return ikon.Response{}, err
-	}
-	d := ikon.Response{}
-	err = json.Unmarshal(b, &d)
-	if err != nil {
-		return ikon.Response{}, err
-	}
-
-	return d, nil
-}
-
-func parseEpic(f string) (vail.Response, error) {
-	b, err := ioutil.ReadFile(f)
-	if err != nil {
-		return vail.Response{}, err
-	}
-	d := vail.Response{}
-	err = json.Unmarshal(b, &d)
-	if err != nil {
-		return vail.Response{}, err
-	}
-
-	return d, nil
 }
 
 type ResortTime struct {
