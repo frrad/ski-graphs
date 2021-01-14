@@ -55,7 +55,7 @@ func main() {
 			log.Fatal(err)
 		}
 		log.Println("processing epic files")
-		processFiles(files, seen, processEpicFiles, writeClient)
+		processFiles(files, seen, processEpicFile, writeClient)
 	}
 }
 
