@@ -19,13 +19,13 @@ import (
 	"github.com/frrad/ski-graphs/lib/vail"
 )
 
-func processIkonFiles(x ResortTime, b []byte) []*apiWrite.Point {
+func processIkonFiles(x ResortTime, b []byte) ([]*apiWrite.Point, error) {
 	pts := []*apiWrite.Point{}
 
 	resp := ikon.Response{}
 	err := json.Unmarshal(b, &resp)
 	if err != nil {
-		log.Fatal(err)
+		return pts, err
 	}
 
 	for _, area := range resp.MountainAreas {
@@ -38,47 +38,52 @@ func processIkonFiles(x ResortTime, b []byte) []*apiWrite.Point {
 		}
 	}
 
-	return pts
+	return pts, nil
 }
 
-func processFiles(files []string, s *Seen, fu func(ResortTime, []byte) []*apiWrite.Point, influxClient api.WriteAPI) {
+type FileProcessor func(ResortTime, []byte) ([]*apiWrite.Point, error)
+
+func processFiles(files []string, s *Seen, fu FileProcessor, influxClient api.WriteAPI) {
 	skipped, processed := 0, 0
 
-	for _, f := range files {
-		if s.Saw(f) {
+	for _, fileName := range files {
+		if s.Saw(fileName) {
 			skipped++
 			continue
 		}
 
-		x, err := parseName(f)
+		x, err := parseName(fileName)
 		if err != nil {
-			log.Fatalf("error parsing name %s: %s", f, err)
+			log.Fatalf("error parsing name %s: %s", fileName, err)
 		}
 
-		b, err := ioutil.ReadFile(f)
+		b, err := ioutil.ReadFile(fileName)
 		if err != nil {
-			log.Fatalf("error reading file %s: %s", f, err)
+			log.Fatalf("error reading file %s: %s", fileName, err)
 		}
-		pts := fu(x, b)
+		pts, err := fu(x, b)
+		if err != nil {
+			log.Fatalf("error processing file %s: %s", fileName, err)
+		}
 		for _, p := range pts {
 			influxClient.WritePoint(p)
 		}
 
 		processed++
-		s.Mark(f)
+		s.Mark(fileName)
 	}
 
 	log.Printf("%d/%d files skipped\n", skipped, len(files))
 	log.Printf("%d/%d files processed\n", processed, len(files))
 }
 
-func processEpicFiles(x ResortTime, b []byte) []*apiWrite.Point {
+func processEpicFile(x ResortTime, b []byte) ([]*apiWrite.Point, error) {
 	pts := []*apiWrite.Point{}
 
 	resp := vail.Response{}
 	err := json.Unmarshal(b, &resp)
 	if err != nil {
-		log.Fatal(err)
+		return pts, err
 	}
 
 	for _, sta := range resp.Data.Stations {
@@ -96,7 +101,7 @@ func processEpicFiles(x ResortTime, b []byte) []*apiWrite.Point {
 
 	}
 
-	return pts
+	return pts, nil
 }
 
 func pointFromLift(l lift.Lift) []*apiWrite.Point {
