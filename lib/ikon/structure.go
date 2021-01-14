@@ -37,6 +37,8 @@ func (o *OptionInt) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (o OptionInt) Get() (int, bool) { return o.val, o.set }
+
 func (o OptionInt) MarshalJSON() ([]byte, error) {
 	if !o.set {
 		return []byte(dashes), nil
@@ -66,30 +68,30 @@ type ClosedOpen struct {
 }
 
 type Condition struct {
-	Conditions       string `json:"Conditions"`
-	Default          string `json:"Default"`
-	DewPointC        string `json:"DewPointC"`
-	DewPointF        string `json:"DewPointF"`
-	FeedSavedTime    string `json:"FeedSavedTime"`
-	Humidity         int64  `json:"Humidity"`
-	Icon             string `json:"Icon"`
-	PressureIN       string `json:"PressureIN"`
-	PressureMB       string `json:"PressureMB"`
-	Skies            string `json:"Skies"`
-	TemperatureC     string `json:"TemperatureC"`
-	TemperatureF     string `json:"TemperatureF"`
-	TemperatureHighC string `json:"TemperatureHighC"`
-	TemperatureHighF string `json:"TemperatureHighF"`
-	TemperatureLowC  string `json:"TemperatureLowC"`
-	TemperatureLowF  string `json:"TemperatureLowF"`
-	UvIndex          string `json:"UvIndex"`
-	WindChillC       string `json:"WindChillC"`
-	WindChillF       string `json:"WindChillF"`
-	WindDirection    string `json:"WindDirection"`
-	WindGustsKph     int64  `json:"WindGustsKph"`
-	WindGustsMph     int64  `json:"WindGustsMph"`
-	WindStrengthKph  int64  `json:"WindStrengthKph"`
-	WindStrengthMph  int64  `json:"WindStrengthMph"`
+	Conditions       string    `json:"Conditions"`
+	Default          string    `json:"Default"`
+	DewPointC        string    `json:"DewPointC"`
+	DewPointF        string    `json:"DewPointF"`
+	FeedSavedTime    string    `json:"FeedSavedTime"`
+	Humidity         int64     `json:"Humidity"`
+	Icon             string    `json:"Icon"`
+	PressureIN       string    `json:"PressureIN"`
+	PressureMB       string    `json:"PressureMB"`
+	Skies            string    `json:"Skies"`
+	TemperatureC     string    `json:"TemperatureC"`
+	TemperatureF     string    `json:"TemperatureF"`
+	TemperatureHighC string    `json:"TemperatureHighC"`
+	TemperatureHighF string    `json:"TemperatureHighF"`
+	TemperatureLowC  string    `json:"TemperatureLowC"`
+	TemperatureLowF  string    `json:"TemperatureLowF"`
+	UvIndex          string    `json:"UvIndex"`
+	WindChillC       string    `json:"WindChillC"`
+	WindChillF       string    `json:"WindChillF"`
+	WindDirection    string    `json:"WindDirection"`
+	WindGustsKph     int64     `json:"WindGustsKph"`
+	WindGustsMph     int64     `json:"WindGustsMph"`
+	WindStrengthKph  OptionInt `json:"WindStrengthKph"`
+	WindStrengthMph  OptionInt `json:"WindStrengthMph"`
 }
 
 type Conditions struct {
@@ -172,6 +174,8 @@ const (
 	LiftStatusScheduled LiftStatus = iota
 	LiftStatusClosed
 	LiftStatusWindHold
+	LiftStatusWindClosure
+	LiftStatusPatrolHold
 	LiftStatusOpen
 	LiftStatusMechanicalHold
 	LiftStatusAnticipatedWeatherImpact
@@ -187,6 +191,10 @@ func (s LiftStatus) String() string {
 		return "Closed"
 	case LiftStatusWindHold:
 		return "Wind Hold"
+	case LiftStatusPatrolHold:
+		return "Patrol Hold"
+	case LiftStatusWindClosure:
+		return "Wind Closure"
 	case LiftStatusOpen:
 		return "Open"
 	case LiftStatusMechanicalHold:
@@ -199,17 +207,6 @@ func (s LiftStatus) String() string {
 
 	log.Fatalf("how string %d", s)
 	return ""
-}
-
-func (s LiftStatus) OneHot() map[string]interface{} {
-	ans := map[string]interface{}{}
-	for i := LiftStatus(0); i < LiftStatusMax; i++ {
-		ans[i.String()] = 0
-		if i == s {
-			ans[i.String()] = 1
-		}
-	}
-	return ans
 }
 
 type Lift struct {
