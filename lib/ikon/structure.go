@@ -180,6 +180,7 @@ const (
 	LiftStatusMechanicalHold
 	LiftStatusAnticipatedWeatherImpact
 	LiftStatusDelayed
+	LiftStatusHold
 	LiftStatusMax
 )
 
@@ -203,6 +204,8 @@ func (s LiftStatus) String() string {
 		return "Anticipated Weather Impact"
 	case LiftStatusDelayed:
 		return "Delayed"
+	case LiftStatusHold:
+		return "Hold"
 	}
 
 	log.Fatalf("how string %d", s)
