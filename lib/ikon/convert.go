@@ -47,6 +47,8 @@ func (s LiftStatus) AsStatus() lift.Status {
 		return lift.StatusClosed
 	case LiftStatusHold:
 		return lift.StatusClosed
+	case LiftStatusMidStationOnly:
+		return lift.StatusOpen
 	}
 	log.Fatalf("don't know how to convert ikon status %s", s)
 	return 0
