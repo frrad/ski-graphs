@@ -178,6 +178,7 @@ const (
 	LiftStatusPatrolHold
 	LiftStatusOpen
 	LiftStatusMechanicalHold
+	LiftStatusMechanicalClosure
 	LiftStatusAnticipatedWeatherImpact
 	LiftStatusDelayed
 	LiftStatusHold
@@ -201,6 +202,8 @@ func (s LiftStatus) String() string {
 		return "Open"
 	case LiftStatusMechanicalHold:
 		return "Mechanical Hold"
+	case LiftStatusMechanicalClosure:
+		return "Mechanical Closure"
 	case LiftStatusAnticipatedWeatherImpact:
 		return "Anticipated Weather Impact"
 	case LiftStatusDelayed:
@@ -211,7 +214,7 @@ func (s LiftStatus) String() string {
 		return "Mid-station only"
 	}
 
-	log.Fatalf("how string %d", s)
+	log.Fatalf("no string for ikon.LiftStatus enum %d", s)
 	return ""
 }
 
