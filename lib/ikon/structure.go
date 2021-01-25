@@ -211,7 +211,7 @@ func (s LiftStatus) String() string {
 		return "Mid-station only"
 	}
 
-	log.Fatalf("how string %d", s)
+	log.Fatalf("no string for ikon.LiftStatus enum %d", s)
 	return ""
 }
 

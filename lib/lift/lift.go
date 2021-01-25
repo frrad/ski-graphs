@@ -47,6 +47,6 @@ func (s Status) String() string {
 		return "Unknown"
 	}
 
-	log.Fatalf("how string %d", s)
+	log.Fatalf("no string for lift.Status enum %d", s)
 	return ""
 }

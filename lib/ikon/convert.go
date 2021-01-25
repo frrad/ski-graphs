@@ -50,6 +50,6 @@ func (s LiftStatus) AsStatus() lift.Status {
 	case LiftStatusMidStationOnly:
 		return lift.StatusOpen
 	}
-	log.Fatalf("don't know how to convert ikon status %s", s)
+	log.Fatalf("don't know how to convert ikon status \"%s\"", s)
 	return 0
 }
