@@ -180,6 +180,7 @@ const (
 	LiftStatusMechanicalHold
 	LiftStatusMechanicalClosure
 	LiftStatusAnticipatedWeatherImpact
+	LiftStatusDownloadOnly
 	LiftStatusDelayed
 	LiftStatusHold
 	LiftStatusMidStationOnly
@@ -196,6 +197,8 @@ func (s LiftStatus) String() string {
 		return "Wind Hold"
 	case LiftStatusPatrolHold:
 		return "Patrol Hold"
+	case LiftStatusDownloadOnly:
+		return "Download Only"
 	case LiftStatusWindClosure:
 		return "Wind Closure"
 	case LiftStatusOpen:
