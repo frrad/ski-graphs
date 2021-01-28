@@ -172,18 +172,19 @@ func (s LiftStatus) MarshalJSON() ([]byte, error) {
 
 const (
 	LiftStatusScheduled LiftStatus = iota
-	LiftStatusClosed
-	LiftStatusWindHold
-	LiftStatusWindClosure
-	LiftStatusPatrolHold
-	LiftStatusOpen
-	LiftStatusMechanicalHold
-	LiftStatusMechanicalClosure
 	LiftStatusAnticipatedWeatherImpact
-	LiftStatusDownloadOnly
+	LiftStatusClosed
 	LiftStatusDelayed
+	LiftStatusDownloadOnly
 	LiftStatusHold
+	LiftStatusMechanicalClosure
+	LiftStatusMechanicalHold
 	LiftStatusMidStationOnly
+	LiftStatusOpen
+	LiftStatusPatrolHold
+	LiftStatusWindClosure
+	LiftStatusWindHold
+	LiftStatusWindyConditions
 	LiftStatusMax
 )
 
@@ -191,6 +192,8 @@ func (s LiftStatus) String() string {
 	switch s {
 	case LiftStatusScheduled:
 		return "Scheduled"
+	case LiftStatusWindyConditions:
+		return "Windy Conditions"
 	case LiftStatusClosed:
 		return "Closed"
 	case LiftStatusWindHold:
