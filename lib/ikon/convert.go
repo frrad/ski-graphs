@@ -33,6 +33,8 @@ func (s LiftStatus) AsStatus() lift.Status {
 		return lift.StatusClosed
 	case LiftStatusWindHold:
 		return lift.StatusClosed
+	case LiftStatusPowerOutage:
+		return lift.StatusClosed
 	case LiftStatusWindClosure:
 		return lift.StatusClosed
 	case LiftStatusPatrolHold:
